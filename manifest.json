@@ -1,0 +1,19 @@
+{
+    "short_name": "Ramon Oliveira",
+    "name": "Meu Site",
+    "icons": [
+      {
+        "src": "images/favicon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "images/favicon.ico",
+        "sizes": "32x32",
+        "type": "image/x-icon"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone"
+  }
+  
