@@ -1,0 +1,28 @@
+.card {
+  background: #fff;
+  border-radius: 12px; /* Borda arredondada */
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra escura */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: inline-block; /* Permite largura dinâmica com base na imagem */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.7);
+}
+
+.card img {
+  width: 100%;
+  height: auto; /* Ajusta a altura com base na largura da imagem */
+  object-fit: contain; /* A imagem não será cortada e manterá a proporção */
+}
+
+.card h3 {
+  margin: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
