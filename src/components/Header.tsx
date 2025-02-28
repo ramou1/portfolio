@@ -30,8 +30,8 @@ const Header: React.FC = () => {
         {/* Menu de Navegação */}
         <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>
           <ul>
-            <li><Link to="/projects" onClick={() => setMenuOpen(false)}>Projetos</Link></li>
-            <li><Link to="/about" onClick={() => setMenuOpen(false)}>Sobre</Link></li>
+            <li><Link to="/projects" onClick={() => setMenuOpen(false)}>projetos</Link></li>
+            <li><Link to="/about" onClick={() => setMenuOpen(false)}>sobre</Link></li>
           </ul>
         </nav>
       </div>
