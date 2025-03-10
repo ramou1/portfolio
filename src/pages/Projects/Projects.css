@@ -1,0 +1,127 @@
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.projects-slider-wrapper {
+  position: relative;
+  padding: 0;
+  margin: 20px 0 40px;
+  /* Removemos o padding do wrapper */
+}
+
+/* Ajusta o espaçamento entre os slides */
+.project-slide {
+  padding: 0 15px; /* Cria espaço entre os cards */
+}
+
+/* Fazer os cards maiores no carrossel */
+.project-slide .card {
+  height: 100%;
+}
+
+.project-slide .card-image-container {
+  height: 360px; /* Card ainda maior na altura */
+}
+
+.project-slide .card-content {
+  padding: 15px 5px; /* Mais espaço para o conteúdo */
+}
+
+.project-slide .card-title {
+  font-size: 22px; /* Título um pouco maior */
+}
+
+/* Estilo para os botões de navegação - maiores e COMPLETAMENTE fora dos cards */
+.slick-prev, 
+.slick-next {
+  z-index: 10;
+  width: 64px !important;
+  height: 64px !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slick-prev:hover, 
+.slick-next:hover {
+  background-color: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slick-prev:before, 
+.slick-next:before {
+  color: #333 !important;
+  font-size: 40px !important; /* Ícones maiores */
+  opacity: 0.8;
+}
+
+/* Ajusta a posição dos botões para fora dos cards - CORRIGIDO */
+.slick-prev {
+  left: -60px !important; /* Movido mais para fora */
+}
+
+.slick-next {
+  right: -60px !important; /* Movido mais para fora */
+}
+
+/* Container principal do slick deve ter margem lateral para acomodar os botões */
+.slick-slider {
+  margin: 0 70px; /* Espaço para os botões nas laterais */
+}
+
+/* Estilo para os pontos indicadores */
+.slick-dots {
+  bottom: -35px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #cbd5e0;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #3b82f6;
+}
+
+/* Assegure-se de que os cards não sejam cortados */
+.slick-slide {
+  margin-bottom: 10px;
+}
+
+/* Responsividade para os botões em telas menores */
+@media (max-width: 768px) {
+  .slick-slider {
+    margin: 0 50px;
+  }
+  
+  .slick-prev {
+    left: -40px !important;
+  }
+  
+  .slick-next {
+    right: -40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .slick-slider {
+    margin: 0 40px;
+  }
+  
+  .slick-prev {
+    left: -35px !important;
+  }
+  
+  .slick-next {
+    right: -35px !important;
+  }
+}
