@@ -37,10 +37,6 @@ const Home: React.FC = () => {
     <div className="app">
       {/* Slider de imagens */}
       <div className="slider-container">
-        <button className="slider-button prev" onClick={prevSlide}>
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
-
         <div className="slider-content">
           {projects.map((project, index) => (
             <div
@@ -48,18 +44,9 @@ const Home: React.FC = () => {
               className={`slide ${index === currentSlide ? "active" : ""}`}
               style={{ backgroundImage: `url(${project.image})` }}
               // onClick={() => history.push(project.link)}
-            >
-              <div className="slide-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </div>
-            </div>
+            ></div>
           ))}
         </div>
-
-        <button className="slider-button next" onClick={nextSlide}>
-          <FontAwesomeIcon icon={faArrowRight} />
-        </button>
 
         <div className="slider-dots">
           {slideImages.map((_, index) => (
