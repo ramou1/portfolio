@@ -23,28 +23,28 @@ const Projects: React.FC = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   return (
-    <div className="projects-container">
-      <h1 className="projects-title">Projetos</h1>
+    <div className="app">
+      <h1 className="projects-title">Meus Projetos</h1>
       <div className="projects-slider-wrapper">
         <Slider {...settings}>
           {projects.map((project, index) => (
