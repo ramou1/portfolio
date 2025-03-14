@@ -9,7 +9,8 @@ export const projects = [
   {
     id: 1,
     title: "Agenda de Contatos",
-    image: project1Image,
+    projectImage: project1Image,
+    slideImage: null,
     category: "Mobile",
     description: "Aplicativo para salvar contatos e informações de contato.",
     externalLink: "behance.net/seu-usuario",
@@ -18,7 +19,8 @@ export const projects = [
   {
     id: 2,
     title: "Fatura Online",
-    image: project2Image,
+    projectImage: project2Image,
+    slideImage: null,
     category: "Web",
     description: "Sistema de gestão de faturas com assinatura digital.",
     externalLink: "https://github.com/seu-usuario/fatura-online",
@@ -27,7 +29,8 @@ export const projects = [
   {
     id: 3,
     title: "Registro de Vacinação",
-    image: project3Image,
+    projectImage: project3Image,
+    slideImage: null,
     category: "Mobile",
     description: "Aplicativo para gerenciar certificados de vacinação.",
     externalLink: "https://github.com/seu-usuario/registro-vacinacao",
@@ -36,7 +39,8 @@ export const projects = [
   {
     id: 4,
     title: "Sistema de Chamados",
-    image: project4Image,
+    projectImage: project4Image,
+    slideImage: null,
     category: "Web",
     description: "Sistema para abertura e acompanhamento de chamados.",
     externalLink: "adobe.com/seu-usuario",
@@ -45,7 +49,8 @@ export const projects = [
   {
     id: 5,
     title: "Gestão de Projetos",
-    image: project5Image,
+    projectImage: project5Image,
+    slideImage: null,
     category: "Design",
     description: "Aplicativo para gerenciar projetos e tarefas.",
     externalLink: "https://github.com",
@@ -54,7 +59,8 @@ export const projects = [
   {
     id: 6,
     title: "Sistema de Orçamentos",
-    image: project6Image,
+    projectImage: project6Image,
+    slideImage: null,
     category: "Web",
     description: "Sistema para criação e envio de orçamentos.",
     externalLink: "https://github.com",

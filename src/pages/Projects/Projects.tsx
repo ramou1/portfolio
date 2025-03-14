@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <div className="project-slide" key={index}>
               <Card
-                image={project.image}
+                image={project.projectImage}
                 title={project.title}
                 category={project.category}
                 onClick={() => console.log(`Projeto ${project.title} clicado!`)}

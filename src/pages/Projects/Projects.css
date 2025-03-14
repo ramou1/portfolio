@@ -1,6 +1,4 @@
 .projects-title {
-  font-size: 2.5rem;
-  font-weight: 700;
   margin-bottom: 2rem;
 }
 
@@ -13,7 +11,8 @@
 
 /* Ajusta o espaçamento entre os slides */
 .project-slide {
-  padding: 0 15px; /* Cria espaço entre os cards */
+  padding: 0 15px;
+  /* Cria espaço entre os cards */
 }
 
 /* Fazer os cards maiores no carrossel */
@@ -22,19 +21,22 @@
 }
 
 .project-slide .card-image-container {
-  height: 360px; /* Card ainda maior na altura */
+  height: 360px;
+  /* Card ainda maior na altura */
 }
 
 .project-slide .card-content {
-  padding: 15px 5px; /* Mais espaço para o conteúdo */
+  padding: 15px 5px;
+  /* Mais espaço para o conteúdo */
 }
 
 .project-slide .card-title {
-  font-size: 22px; /* Título um pouco maior */
+  font-size: 22px;
+  /* Título um pouco maior */
 }
 
 /* Estilo para os botões de navegação - maiores e COMPLETAMENTE fora dos cards */
-.slick-prev, 
+.slick-prev,
 .slick-next {
   z-index: 10;
   width: 64px !important;
@@ -44,31 +46,35 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.slick-prev:hover, 
+.slick-prev:hover,
 .slick-next:hover {
   background-color: rgba(255, 255, 255, 1) !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.slick-prev:before, 
+.slick-prev:before,
 .slick-next:before {
   color: #333 !important;
-  font-size: 40px !important; /* Ícones maiores */
+  font-size: 40px !important;
+  /* Ícones maiores */
   opacity: 0.8;
 }
 
 /* Ajusta a posição dos botões para fora dos cards - CORRIGIDO */
 .slick-prev {
-  left: -60px !important; /* Movido mais para fora */
+  left: -60px !important;
+  /* Movido mais para fora */
 }
 
 .slick-next {
-  right: -60px !important; /* Movido mais para fora */
+  right: -60px !important;
+  /* Movido mais para fora */
 }
 
 /* Container principal do slick deve ter margem lateral para acomodar os botões */
 .slick-slider {
-  margin: 0 70px; /* Espaço para os botões nas laterais */
+  margin: 0 70px;
+  /* Espaço para os botões nas laterais */
 }
 
 /* Estilo para os pontos indicadores */
@@ -95,11 +101,11 @@
   .slick-slider {
     margin: 0 50px;
   }
-  
+
   .slick-prev {
     left: -40px !important;
   }
-  
+
   .slick-next {
     right: -40px !important;
   }
@@ -109,11 +115,11 @@
   .slick-slider {
     margin: 0 40px;
   }
-  
+
   .slick-prev {
     left: -35px !important;
   }
-  
+
   .slick-next {
     right: -35px !important;
   }

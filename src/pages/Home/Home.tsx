@@ -1,4 +1,3 @@
-// Home.tsx
 import React, { useState, useEffect } from "react";
 import "../../App.css";
 import "./Home.css";
@@ -6,8 +5,6 @@ import { projects } from "../../data";
 import Card from "../../components/Card/Card";
 import Modal from "../../components/Modal/Modal";
 import { Link } from "react-router-dom";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import slide1 from "../../assets/images/slide01.png";
 import slide2 from "../../assets/images/slide02.png";
 import slide3 from "../../assets/images/slide03.png";
@@ -22,10 +19,6 @@ const Home: React.FC = () => {
     setCurrentSlide((prev) => (prev === slideImages.length - 1 ? 0 : prev + 1));
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slideImages.length - 1 : prev - 1));
-  };
-
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
@@ -35,14 +28,14 @@ const Home: React.FC = () => {
 
   return (
     <div className="app">
-      {/* Slider de imagens */}
+      {/* slider de imagens */}
       <div className="slider-container">
         <div className="slider-content">
           {projects.map((project, index) => (
             <div
               key={project.id}
               className={`slide ${index === currentSlide ? "active" : ""}`}
-              style={{ backgroundImage: `url(${project.image})` }}
+              style={{ backgroundImage: `url(${project.slideImage})` }}
               // onClick={() => history.push(project.link)}
             ></div>
           ))}
@@ -60,13 +53,13 @@ const Home: React.FC = () => {
       </div>
 
       <h1>Meus Projetos</h1>
-      {/* Seção de projetos em destaque */}
+      {/* seção de projetos em destaque */}
       <section className="projects-section">
         <div className="projects-grid">
           {featuredProjects.map((project) => (
             <Card
               key={project.id}
-              image={project.image}
+              image={project.projectImage}
               title={project.title}
               category={project.category}
               onClick={() => setSelectedProject(project.id)}
