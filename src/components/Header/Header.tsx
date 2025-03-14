@@ -50,7 +50,7 @@ const Header: React.FC = () => {
       <div className="header-container">
         <div className="logo-container">
           <Link to="/" className="logo-link">
-            <img src={currentLogo} alt="Logo" className="logo" />
+            <img src={currentLogo} alt="Logotipo do site escrito Ramon" className="logo" />
           </Link>
         </div>
 

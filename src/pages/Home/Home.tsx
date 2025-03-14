@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   return (
     <div className="app">
       {/* slider de imagens */}
-      <div className="slider-container">
+      <div className="slider-container" aria-label="Carrossel de projetos em destaque">
         <div className="slider-content">
           {projects.map((project, index) => (
             <div
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <h1>Meus Projetos</h1>
+      <h1>meus projetos</h1>
       {/* seção de projetos em destaque */}
       <section className="projects-section">
         <div className="projects-grid">

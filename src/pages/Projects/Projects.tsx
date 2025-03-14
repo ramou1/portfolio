@@ -44,7 +44,7 @@ const Projects: React.FC = () => {
 
   return (
     <div className="app">
-      <h1 className="projects-title">Meus Projetos</h1>
+      <h1 className="projects-title">meus projetos</h1>
       <div className="projects-slider-wrapper">
         <Slider {...settings}>
           {projects.map((project, index) => (
