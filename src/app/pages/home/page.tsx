@@ -60,11 +60,11 @@ export default function Home() {
         </div>
       </div>
 
-      <h1 className="text-center text-3xl font-bold mb-8">meus projetos</h1>
+      <h1 className="text-center text-3xl font-bold mt-12">meus projetos</h1>
       
       {/* Seção de projetos em destaque */}
       <section className="w-full flex flex-col items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 w-full">
           {featuredProjects.map((project: any) => (
             <Card
               key={project.id}
