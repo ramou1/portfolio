@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +23,118 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Effra";
+  src: url("/fonts/Effra-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --secondary-bg-color: #f8f8f8;
+  --accent-color: #0066cc;
+  --border-color: #444;
+  --hover-color: #f0f0f0;
+  --card-bg-color: #ffffff;
+  --button-bg-color: #f0f0f0;
+  --button-text-color: #333;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --secondary-bg-color: #202020;
+  --accent-color: #4d9dff;
+  --border-color: #ddd;
+  --hover-color: #333;
+  --card-bg-color: #1e1e1e;
+  --button-bg-color: #333;
+  --button-text-color: #f0f0f0;
+}
+
+body {
+  font-family: "Effra", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.slick-dots li button:before {
+  font-size: 16px;
+  color: #d6c8b6;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #8b5a2b;
 }
