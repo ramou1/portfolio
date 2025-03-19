@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white text-center py-20">
+    <footer className="bg-black text-white text-center py-8 md:py-20">
       <div className="max-w-6xl mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Coluna 1 - Email */}

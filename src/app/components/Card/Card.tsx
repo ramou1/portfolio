@@ -10,26 +10,26 @@ interface CardProps {
 const Card = ({ image, title, category, onClick }: CardProps) => {
   return (
     <div
-      className="rounded-lg overflow-hidden shadow-md cursor-pointer transition-transform hover:scale-105"
+      className="overflow-hidden cursor-pointer transition-transform hover:scale-105"
       onClick={onClick}
     >
-      <div className="relative h-48 w-full">
+      <div className="relative h-64 w-full">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover"
+          className="rounded-xl object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className="p-4">
         <p
-          className="text-xs uppercase"
+          className="text-sm uppercase"
           style={{ color: "var(--accent-color)" }}
         >
           {category}
         </p>
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-2xl font-semibold">{title}</h3>
       </div>
     </div>
   );

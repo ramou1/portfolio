@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <Header />
-        <main className="min-h-screen px-4 py-8 md:px-8 lg:px-16">
+        <main className="min-h-screen px-4 py-8 md:px-8 lg:px-16"> {/* max-w-[1200px] */}
           {children}
         </main>
         <Footer />

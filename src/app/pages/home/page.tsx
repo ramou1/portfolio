@@ -32,7 +32,7 @@ export default function Home() {
     <div className="w-full">
       {/* Slider de imagens */}
       <div 
-        className="relative w-full h-[500px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
+        className="relative w-full h-[300px] md:h-[500px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
         aria-label="Carrossel de projetos em destaque"
       >
         <div className="w-full h-full relative">
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
       </div>
 
-      <h1 className="text-center text-3xl font-bold mt-12">meus projetos</h1>
+      <h1 className="text-center text-4xl font-bold mt-12">meus projetos</h1>
       
       {/* Seção de projetos em destaque */}
       <section className="w-full flex flex-col items-center">
