@@ -155,3 +155,62 @@ export const participations = [
     ariaLabel: "Ver detalhes do Purificatta Adesão"
   }
 ];  
+
+export const arts = [
+  {
+    id: 1,
+    title: "MeelNutri",
+    projectImage: "/images/portfolio01.png",
+    altText: "Interface do aplicativo MeelNutri mostrando planos alimentares e acompanhamento nutricional",
+    slideImage: "/images/slide01.png",
+    category: "Mobile",
+    description: "Aplicativo para acompanhamento nutricional, criação de planos alimentares e monitoramento de refeições.",
+    externalLink: "https://play.google.com/store/apps/details?id=br.com.meelnutri",
+    link: "/meelnutri",
+    ariaLabel: "Ver detalhes do MeelNutri"
+  },
+  {
+    id: 2,
+    title: "Funcorsan",
+    projectImage: "/images/portfolio06.png",
+    altText: "Interface do aplicativo Funcorsan exibindo serviços e informações para associados",
+    category: "Mobile",
+    description: "Aplicativo para associados da Funcorsan, oferecendo acesso a serviços, documentos e informações.",
+    externalLink: "https://play.google.com/store/apps/details?id=br.com.funcorsan",
+    link: "/funcorsan",
+    ariaLabel: "Ver detalhes do Funcorsan"
+  },
+  {
+    id: 3,
+    title: "Laudelina",
+    projectImage: "/images/portfolio06.png",
+    altText: "Interface do aplicativo Laudelina exibindo informações e suporte para trabalhadoras domésticas",
+    category: "Mobile",
+    description: "Aplicativo voltado para trabalhadoras domésticas, oferecendo informações sobre direitos, benefícios e suporte.",
+    externalLink: "https://play.google.com/store/search?q=laudelina&c=apps",
+    link: "/laudelina",
+    ariaLabel: "Ver detalhes do Laudelina"
+  },
+  {
+    id: 4,
+    title: "Purificatta",
+    projectImage: "/images/portfolio06.png",
+    altText: "Interface do aplicativo Purificatta exibindo gerenciamento de assinaturas de purificadores de água",
+    category: "Mobile",
+    description: "Aplicativo para clientes da Purificatta, permitindo gerenciamento de planos e acompanhamento de serviços.",
+    externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.app",
+    link: "/purificatta",
+    ariaLabel: "Ver detalhes do Purificatta"
+  },
+  {
+    id: 5,
+    title: "Purificatta Adesão",
+    projectImage: "/images/portfolio06.png",
+    altText: "Interface do aplicativo Purificatta Adesão exibindo opções de assinatura para purificadores de água",
+    category: "Mobile",
+    description: "Aplicativo para adesão e gerenciamento de planos da Purificatta, facilitando a assinatura e suporte.",
+    externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.adesao",
+    link: "/purificatta-adesao",
+    ariaLabel: "Ver detalhes do Purificatta Adesão"
+  }
+];  

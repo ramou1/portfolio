@@ -4,16 +4,17 @@ interface CardProps {
   image: string;
   title: string;
   category: string;
+  height?: string;
   onClick: () => void;
 }
 
-const Card = ({ image, title, category, onClick }: CardProps) => {
+const Card = ({ image, title, category, height = "356", onClick }: CardProps) => {
   return (
     <div
       className="overflow-hidden cursor-pointer transition-transform hover:scale-105"
       onClick={onClick}
     >
-      <div className="relative h-64 w-full">
+      <div className="relative w-full" style={{ height: `${height}px` }}>
         <Image
           src={image}
           alt={title}

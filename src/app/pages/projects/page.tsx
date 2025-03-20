@@ -2,7 +2,7 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { projects, participations } from "@/app/data";
+import { projects, participations, arts } from "@/app/data";
 import Card from "@/app/components/Card/Card";
 
 // Importando o Slider dinamicamente para evitar problemas de SSR
@@ -59,7 +59,7 @@ export default function Projects() {
                 image={project.projectImage}
                 title={project.title}
                 category={project.category}
-                onClick={() => console.log(`Projeto ${project.title} clicado!`)}
+                onClick={() => console.log(`projeto ${project.title} clicado!`)}
               />
             </div>
           ))}
@@ -77,7 +77,25 @@ export default function Projects() {
                 image={project.projectImage}
                 title={project.title}
                 category={project.category}
-                onClick={() => console.log(`Projeto ${project.title} clicado!`)}
+                onClick={() => console.log(`projeto ${project.title} clicado!`)}
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      <hr className="mt-12 mb-12 border-gray-300" />
+
+      <h1 className="text-center text-4xl font-bold mb-4">artes</h1>
+      <div className="relative mb-10">
+        <Slider {...settings}>
+          {arts.map((project, index) => (
+            <div className="px-2" key={index}>
+              <Card
+                image={project.projectImage}
+                title={project.title}
+                category={project.category}
+                onClick={() => console.log(`projeto ${project.title} clicado!`)}
               />
             </div>
           ))}

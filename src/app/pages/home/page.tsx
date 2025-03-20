@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Slider de imagens */}
-      <div 
+      <div
         className="relative w-full h-[300px] md:h-[500px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
         aria-label="Carrossel de projetos em destaque"
       >
@@ -39,9 +39,8 @@ export default function Home() {
           {projects.map((project: any, index: any) => (
             <div
               key={project.id}
-              className={`absolute top-0 left-0 w-full h-full bg-cover bg-center flex items-end transition-opacity duration-500 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute top-0 left-0 w-full h-full bg-cover bg-center flex items-end transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
               style={{ backgroundImage: `url(${project.slideImage})` }}
             ></div>
           ))}
@@ -51,9 +50,8 @@ export default function Home() {
           {slideImages.map((_, index) => (
             <span
               key={index}
-              className={`w-3 h-3 rounded-full cursor-pointer transition-colors ${
-                index === currentSlide ? 'bg-white' : 'bg-white/50'
-              }`}
+              className={`w-3 h-3 rounded-full cursor-pointer transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'
+                }`}
               onClick={() => setCurrentSlide(index)}
             ></span>
           ))}
@@ -61,7 +59,7 @@ export default function Home() {
       </div>
 
       <h1 className="text-center text-4xl font-bold mt-12">meus projetos</h1>
-      
+
       {/* Seção de projetos em destaque */}
       <section className="w-full flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 w-full">
@@ -71,14 +69,15 @@ export default function Home() {
               image={project.projectImage}
               title={project.title}
               category={project.category}
+              // height="356"
               onClick={() => setSelectedProject(project.id)}
             />
           ))}
         </div>
 
-        <Link 
-          href="/projects" 
-          className="mt-12 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+        <Link
+          href="/projects"
+          className="mt-12 mb-8 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
         >
           ver todos os projetos
         </Link>
