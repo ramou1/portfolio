@@ -50,7 +50,7 @@ export default function Home() {
           {slideImages.map((_, index) => (
             <span
               key={index}
-              className={`w-3 h-3 rounded-full cursor-pointer transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'
+              className={`w-12 h-1 rounded-full cursor-pointer transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'
                 }`}
               onClick={() => setCurrentSlide(index)}
             ></span>

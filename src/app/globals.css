@@ -130,11 +130,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.slick-dots li button:before {
-  font-size: 16px;
-  color: #d6c8b6;
+slick-dots li button:before {
+  font-size: 16px !important;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #8b5a2b;
+  color: #8b5a2b !important;
 }

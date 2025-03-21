@@ -4,6 +4,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { projects, participations, arts } from "@/app/data";
 import Card from "@/app/components/Card/Card";
+import "@/app/globals.css"
 
 // Importando o Slider dinamicamente para evitar problemas de SSR
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
