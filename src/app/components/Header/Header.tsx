@@ -51,31 +51,38 @@ const Header = () => {
     // Função genérica para lidar com cliques fora
     const handleClickOutside = (event: Event) => {
       const target = event.target as HTMLElement;
-      const nav = document.querySelector('nav');
-      const hamburger = document.querySelector('.hamburger-menu');
+      const nav = document.querySelector("nav");
+      const hamburger = document.querySelector(".hamburger-menu");
 
-      if (menuOpen && nav && !nav.contains(target) && hamburger && !hamburger.contains(target)) {
+      if (
+        menuOpen &&
+        nav &&
+        !nav.contains(target) &&
+        hamburger &&
+        !hamburger.contains(target)
+      ) {
         setMenuOpen(false);
       }
     };
 
     // Adicionar os event listeners
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
 
     // Limpar os event listeners
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [menuOpen]);
 
   return (
     <header
-      className={`w-full bg-[var(--background-color)] sticky top-0 z-50 transition-colors duration-300 ${darkMode ? "dark-mode" : ""
-        }`}
+      className={`w-full bg-[var(--background-color)] sticky top-0 z-50 transition-colors duration-300 ${
+        darkMode ? "dark-mode" : ""
+      }`}
     >
-      <div className="flex justify-between items-center px-4 md:px-8 max-w-6xl mx-auto h-[70px]">
+      <div className="flex justify-between items-center px-4 md:px-8 max-w-7xl mx-auto h-[70px]">
         <div className="flex items-center">
           <Link href="/" className="logo-link">
             <Image
@@ -88,37 +95,43 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Menu Hambúrguer para Mobile - Adicionado classe e melhorado contraste */}
-        <div className="block md:hidden cursor-pointer hamburger-menu" onClick={toggleMenu}>
+        <div
+          className="block md:hidden cursor-pointer hamburger-menu"
+          onClick={toggleMenu}
+        >
           <div className="relative w-6 h-[18px]">
             <span
-              className={`block absolute h-[2px] w-full bg-gray-800 rounded-sm opacity-100 left-0 transform transition-all duration-250 ${menuOpen ? "top-[8px] rotate-[135deg]" : "top-0"
-                }`}
-              style={{ backgroundColor: '#333' }}
+              className={`block absolute h-[2px] w-full bg-gray-800 rounded-sm opacity-100 left-0 transform transition-all duration-250 ${
+                menuOpen ? "top-[8px] rotate-[135deg]" : "top-0"
+              }`}
+              style={{ backgroundColor: darkMode ? "#fff" : "#333" }}
             ></span>
             <span
-              className={`block absolute h-[2px] w-full bg-gray-800 rounded-sm opacity-100 left-0 transform transition-all duration-250 ${menuOpen ? "opacity-0 -left-[60px]" : "top-[8px]"
-                }`}
-              style={{ backgroundColor: '#333' }}
+              className={`block absolute h-[2px] w-full bg-gray-800 rounded-sm opacity-100 left-0 transform transition-all duration-250 ${
+                menuOpen ? "opacity-0 -left-[60px]" : "top-[8px]"
+              }`}
+              style={{ backgroundColor: darkMode ? "#fff" : "#333" }}
             ></span>
             <span
-              className={`block absolute h-[2px] w-full bg-gray-800 rounded-sm opacity-100 left-0 transform transition-all duration-250 ${menuOpen ? "top-[8px] -rotate-[135deg]" : "top-[16px]"
-                }`}
-              style={{ backgroundColor: '#333' }}
+              className={`block absolute h-[2px] w-full bg-gray-800 rounded-sm opacity-100 left-0 transform transition-all duration-250 ${
+                menuOpen ? "top-[8px] -rotate-[135deg]" : "top-[16px]"
+              }`}
+              style={{ backgroundColor: darkMode ? "#fff" : "#333" }}
             ></span>
           </div>
         </div>
 
-        {/* Menu de Navegação - Ajustado para respeitar cores e melhorar tamanho de fonte */}
         <nav
-          className={`md:flex ${menuOpen
+          className={`md:flex ${
+            menuOpen
               ? "fixed top-0 right-0 w-[70%] max-w-[300px] h-screen bg-[var(--background-color)] shadow-lg flex flex-col justify-center z-50"
               : "hidden md:flex"
-            } ${menuOpen ? "transition-all duration-300" : ""}`}
+          } ${menuOpen ? "transition-all duration-300" : ""}`}
         >
           <ul
-            className={`flex ${menuOpen ? "flex-col" : "flex-row"} ${menuOpen ? "w-full" : ""
-              } m-0 p-0 items-center`}
+            className={`flex ${menuOpen ? "flex-col" : "flex-row"} ${
+              menuOpen ? "w-full" : ""
+            } m-0 p-0 items-center`}
           >
             <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
               <Link
@@ -149,7 +162,6 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Modal de Confirmação */}
         {confirmationOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[2000]">
             <div className="bg-white dark:bg-gray-800 p-8 rounded-lg w-[90%] max-w-[400px] text-center shadow-lg">
