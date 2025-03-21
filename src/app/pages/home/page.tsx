@@ -92,7 +92,7 @@ export default function Home() {
         </div>
 
         <Link
-          href="/projects"
+          href="/pages/projects"
           className="mt-12 mb-8 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
         >
           ver todos os projetos

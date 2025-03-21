@@ -21,6 +21,7 @@ const Card = ({ image, title, category, height = "356", onClick }: CardProps) =>
           fill
           className="rounded-xl object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
         />
       </div>
       <div className="p-4">
