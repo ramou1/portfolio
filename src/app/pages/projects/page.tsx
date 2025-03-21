@@ -1,7 +1,7 @@
 "use client";
-
 import React from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { projects, participations, arts } from "@/app/data";
 import Card from "@/app/components/Card/Card";
 import "@/app/globals.css"
@@ -14,6 +14,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Projects() {
+  const router = useRouter();
+  
   const settings = {
     infinite: true,
     speed: 500,
@@ -49,18 +51,23 @@ export default function Projects() {
     ],
   };
 
+  // Função para navegar para a página de detalhes do projeto
+  const navigateToProject = (id: any) => {
+    router.push(`/pages/projects/${id}`);
+  };
+
   return (
     <div className="w-full">
       <h1 className="text-center text-4xl font-bold mt-12">meus projetos</h1>
       <div className="relative mt-4 mb-10">
         <Slider {...settings}>
-          {projects.map((project, index) => (
-            <div className="px-2" key={index}>
+          {projects.map((project) => (
+            <div className="px-2" key={project.id}>
               <Card
                 image={project.projectImage}
                 title={project.title}
                 category={project.category}
-                onClick={() => console.log(`projeto ${project.title} clicado!`)}
+                onClick={() => navigateToProject(project.id)}
               />
             </div>
           ))}
@@ -72,13 +79,13 @@ export default function Projects() {
       <h1 className="text-center text-4xl font-bold mb-4">projetos que participei</h1>
       <div className="relative mb-10">
         <Slider {...settings}>
-          {participations.map((project, index) => (
-            <div className="px-2" key={index}>
+          {participations.map((project) => (
+            <div className="px-2" key={project.id}>
               <Card
                 image={project.projectImage}
                 title={project.title}
                 category={project.category}
-                onClick={() => console.log(`projeto ${project.title} clicado!`)}
+                onClick={() => navigateToProject(project.id + 100)} // Uso um offset para evitar conflitos de ID
               />
             </div>
           ))}
@@ -90,13 +97,13 @@ export default function Projects() {
       <h1 className="text-center text-4xl font-bold mb-4">artes</h1>
       <div className="relative mb-10">
         <Slider {...settings}>
-          {arts.map((project, index) => (
-            <div className="px-2" key={index}>
+          {arts.map((project) => (
+            <div className="px-2" key={project.id}>
               <Card
                 image={project.projectImage}
                 title={project.title}
                 category={project.category}
-                onClick={() => console.log(`projeto ${project.title} clicado!`)}
+                onClick={() => navigateToProject(project.id + 200)} // Outro offset para artes
               />
             </div>
           ))}

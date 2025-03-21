@@ -1,59 +1,75 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Card from '../../components/Card/Card';
-import { projects } from '../../data';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Card from "../../components/Card/Card";
+import { projects } from "../../data";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
 
-  // Você precisará importar e otimizar as imagens para Next.js
-  const slideImages = [
-    '/images/slide01.png',
-    '/images/slide02.png',
-    '/images/slide03.png'
-  ];
+  const featuredSlides = projects.filter(
+    (project) => project.featured && project.slideImage
+  );
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const featuredProjects = projects.slice(0, 6);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slideImages.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) =>
+      prev === featuredSlides.length - 1 ? 0 : prev + 1
+    );
   };
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [featuredSlides.length]);
 
-  const featuredProjects = projects.slice(0, 6);
+  // Função para navegar para a página de detalhes do projeto
+  const navigateToProject = (id: any) => {
+    router.push(`/pages/projects/${id}`);
+  };
 
   return (
-    <div className="w-full">
+    <>
       {/* Slider de imagens */}
       <div
         className="relative w-full h-[300px] md:h-[500px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
         aria-label="Carrossel de projetos em destaque"
       >
-        <div className="w-full h-full relative">
-          {projects.map((project: any, index: any) => (
-            <div
-              key={project.id}
-              className={`absolute top-0 left-0 w-full h-full bg-cover bg-center flex items-end transition-opacity duration-500 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
-                }`}
-              style={{ backgroundImage: `url(${project.slideImage})` }}
-            ></div>
-          ))}
-        </div>
+        {featuredSlides.map((project, index) => (
+          <div
+            key={project.id}
+            className={`absolute w-full h-full transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+            onClick={() => navigateToProject(project.id)}
+            style={{ cursor: "pointer" }}
+          >
+            <img
+              src={project.slideImage}
+              alt={project.altText}
+              className="w-full h-full object-cover"
+            />
+            {/* <div className="absolute bottom-0 left-0 right-0 p-6 bg-black bg-opacity-60 text-white">
+              <h2 className="text-2xl font-bold">{project.title}</h2>
+              <p>{project.description}</p>
+            </div> */}
+          </div>
+        ))}
 
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-          {slideImages.map((_, index) => (
-            <span
+        {/* Slider navigation dots */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {featuredSlides.map((_, index) => (
+            <button
               key={index}
-              className={`w-12 h-1 rounded-full cursor-pointer transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'
-                }`}
+              className={`w-24 h-2 rounded-full ${
+                index === currentSlide ? "bg-white" : "bg-gray-400"
+              }`}
               onClick={() => setCurrentSlide(index)}
-            ></span>
+            />
           ))}
         </div>
       </div>
@@ -70,7 +86,7 @@ export default function Home() {
               title={project.title}
               category={project.category}
               // height="356"
-              onClick={() => setSelectedProject(project.id)}
+              onClick={() => navigateToProject(project.id)}
             />
           ))}
         </div>
@@ -82,6 +98,6 @@ export default function Home() {
           ver todos os projetos
         </Link>
       </section>
-    </div>
+    </>
   );
 }
