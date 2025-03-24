@@ -1,40 +1,43 @@
+
+"use client"
+import { use } from 'react';
+import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { projects, participations, arts } from "@/app/data";
 
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  projectImage: string;
-  altText?: string;
-  slideImage?: string;
-  externalLink?: string;
-  ariaLabel?: string;
-}
+type Params = Promise<{ id: string }>
 
-export default function ProjectDetail({ params }: { params: { id: string } }) {
-  // Função para encontrar o projeto
-  const getProject = () => {
-    // Verifica em todos os arrays
-    const allProjects = [...projects, ...participations, ...arts];
-    const project = allProjects.find((p) => p.id === params.id);
-    
-    if (!project) notFound();
-    
-    return {
-      data: project,
-      type: projects.some(p => p.id === params.id) 
-        ? "project" 
-        : participations.some(p => p.id === params.id)
-          ? "participation"
-          : "art"
-    };
+export default async function ProjectDetail(props: { params: Params }) {
+  const params = await props.params;
+  const projectId = params.id;
+
+  // Função para encontrar o projeto com base no ID
+  const findProject = () => {
+    // Verifica nos projetos principais
+    const projectMatch = projects.find((p) => p.id === projectId);
+    if (projectMatch) return { data: projectMatch, type: "project" };
+
+    // Verifica nas participações
+    const participationMatch = participations.find((p) => p.id === projectId);
+    if (participationMatch)
+      return { data: participationMatch, type: "participation" };
+
+    // Verifica nas artes
+    const artMatch = arts.find((p) => p.id === projectId);
+    if (artMatch) return { data: artMatch, type: "art" };
+
+    return null;
   };
 
-  const { data, type } = getProject();
+  const project = findProject();
+
+  if (!project) {
+    notFound();
+  }
+
+  const { data, type } = project;
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -46,6 +49,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
       </Link>
 
       <div className="flex flex-col lg:flex-row gap-12 mt-6">
+        {/* Informações do projeto (lado esquerdo) */}
         <div className="lg:w-1/2">
           <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
           <div className="mb-4">
@@ -72,7 +76,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
             </a>
           )}
         </div>
-        
+        {/* Imagens do projeto (lado direito) */}
         <div className="lg:w-1/2">
           <div className="rounded-lg overflow-hidden shadow-lg">
             <Image
@@ -81,7 +85,6 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
               width={800}
               height={500}
               className="w-full h-auto"
-              priority
             />
           </div>
 
