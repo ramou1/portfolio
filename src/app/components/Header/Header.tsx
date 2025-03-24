@@ -124,7 +124,7 @@ const Header = () => {
         <nav
           className={`md:flex ${
             menuOpen
-              ? "fixed top-0 right-0 w-[70%] max-w-[300px] h-screen bg-[var(--background-color)] shadow-lg flex flex-col justify-center z-50"
+              ? "fixed top-0 right-0 w-[70%] max-w-[300px] h-screen bg-[var(--background-color)] flex flex-col justify-center z-50 shadow-3xl"
               : "hidden md:flex"
           } ${menuOpen ? "transition-all duration-300" : ""}`}
         >
