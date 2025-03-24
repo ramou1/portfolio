@@ -4,8 +4,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "meu portfolio - ramon oliveira",
-  description: "portfolio de projetos e trabalhos",
+  title: "Portfólio - Ramon Oliveira - Desenvolvedor Frontend",
+  description: "Portfolio de projetos e trabalhos",
 };
 
 export default function RootLayout({
