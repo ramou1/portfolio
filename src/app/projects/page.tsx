@@ -53,7 +53,7 @@ export default function Projects() {
 
   // Função para navegar para a página de detalhes do projeto
   const navigateToProject = (id: any) => {
-    router.push(`/pages/projects/${id}`);
+    router.push(`/projects/${id}`);
   };
 
   return (

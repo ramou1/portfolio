@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Card from "../../components/Card/Card";
-import { projects } from "../../data";
+import Card from "../components/Card/Card";
+import { projects } from "../data";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
 
   // Função para navegar para a página de detalhes do projeto
   const navigateToProject = (id: any) => {
-    router.push(`/pages/projects/${id}`);
+    router.push(`/projects/${id}`);
   };
 
   return (
@@ -92,7 +92,7 @@ export default function Home() {
         </div>
 
         <Link
-          href="/pages/projects"
+          href="/projects"
           className="mt-12 mb-8 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
         >
           ver todos os projetos

@@ -135,7 +135,7 @@ const Header = () => {
           >
             <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
               <Link
-                href="/pages/projects"
+                href="/projects"
                 className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-lg md:text-base transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
@@ -144,7 +144,7 @@ const Header = () => {
             </li>
             <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
               <Link
-                href="/pages/about"
+                href="/about"
                 className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-lg md:text-base transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >

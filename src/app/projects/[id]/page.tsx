@@ -38,7 +38,7 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
   return (
     <div className="container mx-auto px-4 py-12">
       <Link
-        href="/pages/projects"
+        href="/projects"
         className="text-blue-500 hover:underline mb-8 inline-block"
       >
         ← Voltar para projetos
