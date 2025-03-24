@@ -1,17 +1,14 @@
-"use client";
 import React, { useMemo } from "react";
-import { projects, participations, arts } from "@/app/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { projects, participations, arts } from "@/app/data";
 
 interface ProjectDetailProps {
-  params: {
-    id: string;
-  };
+  params: { id: string };
 }
 
-export default function ProjectDetail({ params }: ProjectDetailProps) {
+export default async function ProjectDetail({ params }: ProjectDetailProps) {
   const projectId = params.id;
 
   // Função para encontrar o projeto com base no ID
@@ -37,69 +34,67 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
   }
 
   const { data, type } = project;
-  console.log(data);
+
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <Link
-          href="/pages/projects"
-          className="inline-flex items-center mb-8 text-blue-600 hover:text-blue-800 transition-colors"
-        >
-          ← Voltar para projetos
-        </Link>
+    <div className="container mx-auto px-4 py-12">
+      <Link
+        href="/pages/projects"
+        className="text-blue-500 hover:underline mb-8 inline-block"
+      >
+        ← Voltar para projetos
+      </Link>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Informações do projeto (lado esquerdo) */}
-          <div className="md:w-1/2">
-            <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-
-            <div className="flex gap-2 mb-6">
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                {data.category}
+      <div className="flex flex-col lg:flex-row gap-12 mt-6">
+        {/* Informações do projeto (lado esquerdo) */}
+        <div className="lg:w-1/2">
+          <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
+          <div className="mb-4">
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+              {data.category}
+            </span>
+            {type !== "project" && (
+              <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                {type === "participation" ? "Participação" : "Arte"}
               </span>
-              {type !== "project" && (
-                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                  {type === "participation" ? "Participação" : "Arte"}
-                </span>
-              )}
-            </div>
-
-            <p className="text-gray-700 mb-6">{data.description}</p>
-
-            {data.externalLink && (
-              <a
-                href={data.externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
-              >
-                Visitar projeto
-              </a>
             )}
           </div>
+          <p className="text-gray-700 mb-6">{data.description}</p>
 
-          {/* Imagens do projeto (lado direito) */}
-          <div className="md:w-1/2">
-            <div className="relative w-full h-64 md:h-96 mb-4">
+          {data.externalLink && (
+            <a
+              href={data.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              aria-label={data.ariaLabel}
+            >
+              Visitar projeto
+            </a>
+          )}
+        </div>
+        {/* Imagens do projeto (lado direito) */}
+        <div className="lg:w-1/2">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src={data.projectImage}
+              alt={data.altText || `Imagem do projeto ${data.title}`}
+              width={800}
+              height={500}
+              className="w-full h-auto"
+            />
+          </div>
+
+          {data.slideImage && (
+            <div className="mt-6 rounded-lg overflow-hidden shadow-lg">
               <Image
-                src={data.projectImage}
-                alt={data.title}
-                fill
-                className="object-cover rounded-lg"
+                src={data.slideImage}
+                alt={`Slide do projeto ${data.title}`}
+                width={800}
+                height={500}
+                className="w-full h-auto"
               />
             </div>
-
-            {data.slideImage && (
-              <div className="relative w-full h-64 md:h-96">
-                <Image
-                  src={data.slideImage}
-                  alt={`${data.title} - slide`}
-                  fill
-                  className="object-cover rounded-lg"
-                />
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>
