@@ -99,7 +99,7 @@ export const projects = [
 
 export const participations = [
   {
-    id: "meelnutri",
+    id: "meelnutri2",
     title: "MeelNutri",
     projectImage: "/images/portfolio01.png",
     altText: "Interface do aplicativo MeelNutri mostrando planos alimentares e acompanhamento nutricional",
@@ -111,7 +111,7 @@ export const participations = [
     featured: false,
   },
   {
-    id: "funcorsan",
+    id: "funcorsan2",
     title: "Funcorsan",
     projectImage: "/images/portfolio06.png",
     altText: "Interface do aplicativo Funcorsan exibindo serviços e informações para associados",
@@ -123,7 +123,7 @@ export const participations = [
     featured: false,
   },
   {
-    id: "laudelina",
+    id: "laudelina2",
     title: "Laudelina",
     projectImage: "/images/portfolio06.png",
     altText: "Interface do aplicativo Laudelina exibindo informações e suporte para trabalhadoras domésticas",
@@ -135,7 +135,7 @@ export const participations = [
     featured: false,
   },
   {
-    id: "purificatta",
+    id: "purificatta2",
     title: "Purificatta",
     projectImage: "/images/portfolio06.png",
     altText: "Interface do aplicativo Purificatta exibindo gerenciamento de assinaturas de purificadores de água",
@@ -147,7 +147,7 @@ export const participations = [
     featured: false,
   },
   {
-    id: "purificatta-adesao",
+    id: "purificatta-adesao2",
     title: "Purificatta Adesão",
     projectImage: "/images/portfolio06.png",
     altText: "Interface do aplicativo Purificatta Adesão exibindo opções de assinatura para purificadores de água",

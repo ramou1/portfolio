@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,11 +8,11 @@ interface ProjectDetailProps {
   params: { id: string };
 }
 
-export default async function ProjectDetail({ params }: ProjectDetailProps) {
+export default function ProjectDetail({ params }: ProjectDetailProps) {
   const projectId = params.id;
 
   // Função para encontrar o projeto com base no ID
-  const project = useMemo(() => {
+  const findProject = () => {
     // Verifica nos projetos principais
     const projectMatch = projects.find((p) => p.id === projectId);
     if (projectMatch) return { data: projectMatch, type: "project" };
@@ -27,7 +27,9 @@ export default async function ProjectDetail({ params }: ProjectDetailProps) {
     if (artMatch) return { data: artMatch, type: "art" };
 
     return null;
-  }, [projectId]);
+  };
+
+  const project = findProject();
 
   if (!project) {
     notFound();
