@@ -4,26 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects, participations, arts } from "@/app/data";
 
-interface ProjectDetailProps {
+type Props = {
   params: { id: string };
-}
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export default function ProjectDetail({ params }: ProjectDetailProps) {
+export default function ProjectDetail({ params, searchParams }: Props) {
   const projectId = params.id;
-
+  
   // Função para encontrar o projeto com base no ID
   const findProject = () => {
     // Verifica nos projetos principais
     const projectMatch = projects.find((p) => p.id === projectId);
     if (projectMatch) return { data: projectMatch, type: "project" };
 
-    // Verifica nas participações
-    const participationMatch = participations.find((p) => p.id === projectId);
+    // Verifica nas participações (com offset)
+    const participationId = String(Number(projectId) - 100);
+    const participationMatch = participations.find((p) => p.id === participationId);
     if (participationMatch)
       return { data: participationMatch, type: "participation" };
 
-    // Verifica nas artes
-    const artMatch = arts.find((p) => p.id === projectId);
+    // Verifica nas artes (com offset)
+    const artId = String(Number(projectId) - 200);
+    const artMatch = arts.find((p) => p.id === artId);
     if (artMatch) return { data: artMatch, type: "art" };
 
     return null;
@@ -101,4 +104,41 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
       </div>
     </div>
   );
+}
+
+// Adicionando a função generateMetadata para garantir compatibilidade com Next.js 15
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  // Encontre o projeto para o metadata
+  const projectId = params.id;
+  
+  let title = "Projeto";
+  let description = "Detalhes do projeto";
+  
+  // Tentar encontrar o projeto
+  const projectMatch = projects.find((p) => p.id === projectId);
+  if (projectMatch) {
+    title = projectMatch.title;
+    description = projectMatch.description;
+  } else {
+    // Verificar participações
+    const participationId = String(Number(projectId) - 100);
+    const participationMatch = participations.find((p) => p.id === participationId);
+    if (participationMatch) {
+      title = participationMatch.title;
+      description = participationMatch.description;
+    } else {
+      // Verificar artes
+      const artId = String(Number(projectId) - 200);
+      const artMatch = arts.find((p) => p.id === artId);
+      if (artMatch) {
+        title = artMatch.title;
+        description = artMatch.description;
+      }
+    }
+  }
+  
+  return {
+    title,
+    description
+  };
 }
