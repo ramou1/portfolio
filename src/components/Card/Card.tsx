@@ -8,7 +8,13 @@ interface CardProps {
   onClick: () => void;
 }
 
-const Card = ({ image, title, category, height = "356", onClick }: CardProps) => {
+const Card = ({
+  image,
+  title,
+  category,
+  height = "356",
+  onClick,
+}: CardProps) => {
   return (
     <div
       className="overflow-hidden cursor-pointer transition-transform hover:scale-105"
@@ -25,12 +31,11 @@ const Card = ({ image, title, category, height = "356", onClick }: CardProps) =>
         />
       </div>
       <div className="p-4">
-        <p
-          className="text-sm uppercase"
-          style={{ color: "var(--accent-color)" }}
-        >
+        {/* style={{ color: "var(--accent-color)" }} */}
+        <span className="inline-flex items-center rounded-xl bg-blue-900 px-3 py-1 mb-2 text-xs text-gray-100 uppercase">
           {category}
-        </p>
+        </span>
+
         <h3 className="text-2xl font-semibold">{title}</h3>
       </div>
     </div>
