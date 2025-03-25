@@ -3,7 +3,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { projects, participations, arts } from "@/app/data";
-import Card from "@/app/components/Card/Card";
+import Card from "../../components/Card/Card";
 import "@/app/globals.css"
 
 // Importando o Slider dinamicamente para evitar problemas de SSR
@@ -12,6 +12,7 @@ const Slider = dynamic(() => import("react-slick"), { ssr: false });
 // Importante: Estes estilos devem ser importados em um arquivo que seja renderizado no cliente
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 
 export default function Projects() {
   const router = useRouter();
