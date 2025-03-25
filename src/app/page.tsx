@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { projects } from "./data";
-import Card from "./components/Card/Card";
+import Card from "../components/Card/Card";
 
 export default function RootPage() {
   const router = useRouter();
