@@ -53,7 +53,7 @@ export default async function ProjectDetail(props: { params: Params }) {
         <div className="lg:w-1/2">
           <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
           <div className="mb-4">
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+            <span className="inline-block bg-[var(--accent-color)] rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 uppercase">
               {data.category}
             </span>
             {type !== "project" && (
@@ -65,14 +65,17 @@ export default async function ProjectDetail(props: { params: Params }) {
           <p className="text-gray-700 mb-6">{data.description}</p>
 
           {data.externalLink && (
+
+            // className="px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+
             <a
               href={data.externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              className="px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
               aria-label={data.ariaLabel}
             >
-              Visitar projeto
+              visitar projeto
             </a>
           )}
         </div>

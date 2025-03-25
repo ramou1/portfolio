@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { projects } from "./data";
 import Card from "../components/Card/Card";
 
@@ -32,16 +33,47 @@ export default function RootPage() {
     router.push(`/projects/${id}`);
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <>
       {/* Slider de imagens */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
         className="relative w-full h-[300px] md:h-[500px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
         aria-label="Carrossel de projetos em destaque"
       >
         {featuredSlides.map((project: any, index: any) => (
-          <div
+          <motion.div
             key={project.id}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: index === currentSlide ? 1 : 0,
+              transition: { duration: 1 },
+            }}
             className={`absolute w-full h-full transition-opacity duration-1000 ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
@@ -53,51 +85,74 @@ export default function RootPage() {
               alt={project.altText}
               className="w-full h-full object-cover"
             />
-            {/* <div className="absolute bottom-0 left-0 right-0 p-6 bg-black bg-opacity-60 text-white">
-              <h2 className="text-2xl font-bold">{project.title}</h2>
-              <p>{project.description}</p>
-            </div> */}
-          </div>
+          </motion.div>
         ))}
 
         {/* Slider navigation dots */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {featuredSlides.map((_: any, index: any) => (
-            <button
+            <motion.button
               key={index}
-              className={`w-24 h-2 rounded-full ${
+              initial={{ scale: 1 }}
+              animate={{
+                scale: index === currentSlide ? 1.2 : 1,
+                backgroundColor: index === currentSlide ? "#FFFFFF" : "#9CA3AF",
+              }}
+              className={`w-12 h-2 rounded-full ${
                 index === currentSlide ? "bg-white" : "bg-gray-400"
               }`}
               onClick={() => setCurrentSlide(index)}
             />
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <h1 className="text-center text-4xl font-bold mt-12">meus projetos</h1>
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center text-4xl font-bold mt-12"
+      >
+        meus projetos
+      </motion.h1>
 
       {/* Seção de projetos em destaque */}
-      <section className="w-full flex flex-col items-center">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+        className="w-full flex flex-col items-center"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 w-full">
           {featuredProjects.map((project: any) => (
-            <Card
-              key={project.id}
-              image={project.projectImage}
-              title={project.title}
-              category={project.category}
-              // height="356"
-              onClick={() => navigateToProject(project.id)}
-            />
+            <motion.div key={project.id} variants={itemVariants}>
+              <Card
+                image={project.projectImage}
+                title={project.title}
+                category={project.category}
+                onClick={() => navigateToProject(project.id)}
+              />
+            </motion.div>
           ))}
         </div>
 
-        <Link
-          href="/projects"
-          className="mt-12 mb-8 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
-        >
-          ver todos os projetos
-        </Link>
-      </section>
+        <div className="mt-12 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              href="/projects"
+              className="mt-8 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+            >
+              ver todos os projetos
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
     </>
   );
 }

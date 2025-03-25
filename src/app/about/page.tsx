@@ -76,10 +76,8 @@ export default function About() {
           <h2 className="mt-4 text-2xl font-bold">Ramon Oliveira</h2>
         </div>
         <div className="md:col-span-2 text-center md:text-left">
-          <h1 className="text-4xl font-bold mb-2">
-            sobre mim
-          </h1>
-          <p className="text-lg text-gray-700">
+          <h1 className="text-4xl font-bold mb-2">sobre mim</h1>
+          <p className="text-lg">
             Sou um desenvolvedor frontend apaixonado por criar experiências
             digitais envolventes e responsivas. Com uma combinação de
             criatividade técnica e atenção aos detalhes, transformo conceitos em
@@ -100,7 +98,7 @@ export default function About() {
           variants={fadeInVariants}
         >
           <h2 className="text-3xl font-bold mb-2 text-center">minha jornada</h2>
-          <p className="text-lg text-gray-700 mb-8 whitespace-pre-line">
+          <p className="text-lg mb-8 whitespace-pre-line">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem
             nisi, suscipit quis dui sit amet, vehicula imperdiet orci. Phasellus
             orci nibh, tempor a lorem eget, fringilla sodales libero. Nullam at
@@ -117,9 +115,11 @@ export default function About() {
             Quisque vel egestas odio. Vestibulum nec sagittis est. Nulla a
             malesuada ipsum. Fusce congue sem a sapien elementum, id fermentum
             tortor semper. Praesent quis enim purus.
-            <div className="my-8 bg-gray-100 h-[480px] w-full flex items-center justify-center text-gray-500 rounded-3xl">
-              (1280x480)
-            </div>
+          </p>
+          <div className="my-8 bg-gray-100 h-[480px] w-full flex items-center justify-center text-gray-500 rounded-3xl">
+            (1280x480)
+          </div>
+          <p className="text-lg mb-8 whitespace-pre-line">
             Donec ornare vel magna eget placerat. Nunc vel augue fringilla,
             porta dui et, aliquam turpis. Proin finibus urna consectetur risus
             blandit cursus. Cras eleifend lacus eros, eget blandit lorem mattis
