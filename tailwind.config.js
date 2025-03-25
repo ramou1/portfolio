@@ -13,7 +13,7 @@ module.exports = {
         "background-color": "#ffffff",
         "text-color": "#000000",
         "secondary-bg-color": "#f8f8f8",
-        "accent-color": "#0066cc",
+        "accent-color": "#784f41",
         "border-color": "#444",
         "hover-color": "#f0f0f0",
         "card-bg-color": "#ffffff",

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false); // Sempre começa com o tema claro
+  const [darkMode, setDarkMode] = useState(false);
   const [confirmationOpen, setConfirmationOpen] = useState(false);
   const [actionPending, setActionPending] = useState<string | null>(null);
 
@@ -82,17 +82,21 @@ const Header = () => {
         darkMode ? "dark-mode" : ""
       }`}
     >
-      <div className="flex justify-between items-center px-4 md:px-8 max-w-7xl mx-auto h-[70px]">
+      <div className="flex justify-between items-center px-4 md:px-8 max-w-7xl mx-auto h-[70px] relative">
         <div className="flex items-center">
           <Link href="/" className="logo-link">
             <Image
               src={currentLogo}
               alt="Logotipo do site escrito Ramon"
-              height={60}
-              width={100}
+              height={50}
+              width={90}
               className="h-[60px] w-auto"
             />
           </Link>
+        </div>
+
+        <div className="absolute left-1/2 transform -translate-x-1/2 bg-[var(--accent-color)] text-white px-3 py-1 rounded-xl text-xs font-medium">
+          dev frontend
         </div>
 
         <div

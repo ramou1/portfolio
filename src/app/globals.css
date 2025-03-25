@@ -103,7 +103,7 @@ body {
   --background-color: #ffffff;
   --text-color: #000000;
   --secondary-bg-color: #f8f8f8;
-  --accent-color: #0066cc;
+  --accent-color: #784f41;
   --border-color: #444;
   --hover-color: #f0f0f0;
   --card-bg-color: #ffffff;
@@ -115,7 +115,7 @@ body.dark-mode {
   --background-color: #121212;
   --text-color: #f0f0f0;
   --secondary-bg-color: #202020;
-  --accent-color: #4d9dff;
+  --accent-color: #784f41;
   --border-color: #ddd;
   --hover-color: #333;
   --card-bg-color: #1e1e1e;
@@ -135,7 +135,7 @@ slick-dots li button:before {
 }
 
 .slick-dots li.slick-active button:before {
-  color: #8b5a2b !important;
+  color: var(--accent-color) !important;
 }
 
 @theme {
