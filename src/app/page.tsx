@@ -63,7 +63,7 @@ export default function RootPage() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative w-full h-[300px] md:h-[500px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
+        className="relative w-full h-[300px] md:h-[600px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
         aria-label="Carrossel de projetos em destaque"
       >
         {featuredSlides.map((project: any, index: any) => (
@@ -146,7 +146,7 @@ export default function RootPage() {
           >
             <Link
               href="/projects"
-              className="mt-8 px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+              className="mt-8 px-6 py-2 bg-transparent text-[var(--button-text-color)] border-2 border-[var(--button-text-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--button-text-color)] hover:text-[var(--hover-color)]"
             >
               ver todos os projetos
             </Link>

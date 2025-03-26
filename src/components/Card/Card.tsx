@@ -30,9 +30,8 @@ const Card = ({
           loading="lazy"
         />
       </div>
-      <div className="p-4">
-        {/* style={{ color: "var(--accent-color)" }} */}
-        <span className="inline-flex items-center rounded-xl bg-[var(--accent-color)] px-3 py-1 mb-2 text-xs text-white uppercase">
+      <div className="pt-2 pb-4">
+        <span className="inline-flex items-center rounded-xl bg-[var(--accent-color)] text-white px-3 py-1 mb-2 text-xs uppercase">
           {category}
         </span>
 

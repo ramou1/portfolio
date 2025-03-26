@@ -116,8 +116,8 @@ export default function About() {
             malesuada ipsum. Fusce congue sem a sapien elementum, id fermentum
             tortor semper. Praesent quis enim purus.
           </p>
-          <div className="my-8 bg-gray-100 h-[480px] w-full flex items-center justify-center text-gray-500 rounded-3xl">
-            (1280x480)
+          <div className="my-8 bg-gray-800 h-[480px] w-full flex items-center justify-center text-gray-500 rounded-3xl">
+            1280x480
           </div>
           <p className="text-lg mb-8 whitespace-pre-line">
             Donec ornare vel magna eget placerat. Nunc vel augue fringilla,

@@ -14,14 +14,6 @@ const Header = () => {
     ? "/images/logo-dark.png"
     : "/images/logo-light.png";
 
-  // Adiciona useEffect para atualizar a cor da status bar
-  useEffect(() => {
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute("content", darkMode ? "#1a1a1a" : "#ffffff");
-    }
-  }, [darkMode]);
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -103,7 +95,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2 bg-[var(--accent-color)] text-white px-3 py-1 rounded-xl text-xs font-medium">
+        <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#cbd6ae] text-gray-700 px-3 py-1 rounded-xl text-xs font-medium">
           dev frontend
         </div>
 
@@ -166,7 +158,7 @@ const Header = () => {
             <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
               <button
                 onClick={requestThemeChange}
-                className="border border-[var(--border-color)] px-4 py-2 rounded text-[var(--text-color)] text-lg md:text-sm hover:bg-[var(--hover-color)] transition-all duration-300"
+                className="border border-[var(--border-color)] px-4 py-2 rounded-full text-[var(--border-color)] text-lg md:text-xs hover:bg-[var(--border-color)] hover:text-[var(--hover-color)] transition-all duration-300"
               >
                 {darkMode ? "☀️ light mode" : "🌙 dark mode"}
               </button>

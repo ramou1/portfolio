@@ -1,13 +1,11 @@
-
-"use client"
-import { use } from 'react';
+import { use } from "react";
 import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { projects, participations, arts } from "@/app/data";
 
-type Params = Promise<{ id: string }>
+type Params = Promise<{ id: string }>;
 
 export default async function ProjectDetail(props: { params: Params }) {
   const params = await props.params;
@@ -53,31 +51,30 @@ export default async function ProjectDetail(props: { params: Params }) {
         <div className="lg:w-1/2">
           <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
           <div className="mb-4">
-            <span className="inline-block bg-[var(--accent-color)] rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 uppercase">
+            <span className="inline-block text-white bg-[var(--accent-color)] rounded-full px-4 py-1 text-xs font-semibold uppercase transition-all duration-300 hover:scale-105">
               {data.category}
             </span>
             {type !== "project" && (
-              <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+              <span className="inline-block bg-blue-200 rounded-full px-4 py-1 text-sm font-semibold text-gray-700 mr-2">
                 {type === "participation" ? "Participação" : "Arte"}
               </span>
             )}
           </div>
           <p className="text-gray-700 mb-6">{data.description}</p>
 
-          {data.externalLink && (
-
-            // className="px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
-
-            <a
-              href={data.externalLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
-              aria-label={data.ariaLabel}
-            >
-              visitar projeto
-            </a>
-          )}
+          <div className="mt-12">
+            {data.externalLink && (
+              <a
+                href={data.externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-12 px-6 py-2 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+                aria-label={data.ariaLabel}
+              >
+                visitar projeto
+              </a>
+            )}
+          </div>
         </div>
         {/* Imagens do projeto (lado direito) */}
         <div className="lg:w-1/2">

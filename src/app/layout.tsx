@@ -6,10 +6,6 @@ import Footer from "../components/Footer/Footer";
 export const metadata: Metadata = {
   title: "Portfólio - Ramon Oliveira - Desenvolvedor Frontend",
   description: "Portfolio de projetos e trabalhos",
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
-  ],
 };
 
 export default function RootLayout({
