@@ -50,14 +50,21 @@ export default async function ProjectDetail(props: { params: Params }) {
 
         <div className="lg:w-1/2">
           <h1 className="text-5xl">{data.title}</h1>
-          <div className="mb-4">
+          <div className="mt-2 mb-4">
             <span className="inline-block text-white bg-[var(--accent-color)] rounded-full px-4 py-1 text-xs font-semibold uppercase transition-all duration-300 hover:scale-105">
               {data.category}
             </span>
-            {type !== "project" && (
-              <span className="inline-block bg-blue-200 rounded-full px-4 py-1 text-sm font-semibold text-gray-700 mr-2">
-                {type === "participation" ? "Participação" : "Arte"}
-              </span>
+            {data.tools && (
+              <div className="flex flex-wrap gap-2 mt-2">
+                {data.tools.map((tool, index) => (
+                  <span
+                    key={index}
+                    className="inline-block text-white bg-[#cbd6ae] rounded-full px-4 py-1 text-xs font-semibold text-gray-700 uppercase"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
             )}
           </div>
           <p className="text-gray-700 mb-6">{data.description}</p>

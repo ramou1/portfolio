@@ -35,7 +35,7 @@ const Card = ({
           {category}
         </span>
 
-        <h3 className="text-2xl font-semibold">{title}</h3>
+        <h3 className="text-3xl font-semibold">{title}</h3>
       </div>
     </div>
   );

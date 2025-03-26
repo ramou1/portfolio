@@ -168,7 +168,7 @@ const Header = () => {
 
         {confirmationOpen && (
           <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-[2000]">
-            <div className="bg-zinc-700 p-8 rounded-lg w-[90%] max-w-[400px] text-center shadow-lg border-1 border-zinc-600">
+            <div className="bg-stone-700 p-8 rounded-lg w-[90%] max-w-[400px] text-center shadow-lg border-1 border-stone-600">
               <p className="text-white">
                 deseja alterar para o {darkMode ? "modo claro" : "modo escuro"}?
               </p>
@@ -181,7 +181,7 @@ const Header = () => {
                 </button>
                 <button
                   onClick={cancelAction}
-                  className="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 py-2 px-6 rounded font-medium border border-zinc-600 transition-colors duration-300"
+                  className="bg-stone-700 hover:bg-stone-600 text-stone-100 py-2 px-6 rounded font-medium border border-stone-600 transition-colors duration-300"
                 >
                   cancelar
                 </button>
