@@ -14,6 +14,14 @@ const Header = () => {
     ? "/images/logo-dark.png"
     : "/images/logo-light.png";
 
+  // Adiciona useEffect para atualizar a cor da status bar
+  useEffect(() => {
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", darkMode ? "#1a1a1a" : "#ffffff");
+    }
+  }, [darkMode]);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
