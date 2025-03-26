@@ -167,21 +167,21 @@ const Header = () => {
         </nav>
 
         {confirmationOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[2000]">
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-lg w-[90%] max-w-[400px] text-center shadow-lg">
-              <p className="dark:text-gray-100">
+          <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-[2000]">
+            <div className="bg-zinc-700 p-8 rounded-lg w-[90%] max-w-[400px] text-center shadow-lg border-1 border-zinc-600">
+              <p className="text-white">
                 deseja alterar para o {darkMode ? "modo claro" : "modo escuro"}?
               </p>
               <div className="flex justify-center gap-4 mt-6">
                 <button
                   onClick={confirmAction}
-                  className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded font-medium transition-colors duration-300"
+                  className="bg-[var(--accent-color)] text-white py-2 px-6 rounded font-medium transition-colors duration-300"
                 >
                   confirmar
                 </button>
                 <button
                   onClick={cancelAction}
-                  className="bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100 py-2 px-6 rounded font-medium border border-gray-300 dark:border-gray-600 transition-colors duration-300"
+                  className="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 py-2 px-6 rounded font-medium border border-zinc-600 transition-colors duration-300"
                 >
                   cancelar
                 </button>

@@ -147,7 +147,7 @@ export default function About() {
         viewport={{ once: true }}
         variants={fadeInVariants}
       >
-        <h2 className="text-3xl font-bold mb-4 text-center">ferramentas</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">conhecimentos</h2>
         <div className="w-full md:w-md flex flex-wrap justify-center gap-6 mx-auto mb-12">
           {techIcons.map(({ Icon, name }, index) => (
             <motion.div

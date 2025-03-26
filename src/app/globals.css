@@ -1,102 +1,146 @@
 @import "tailwindcss";
-
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Thin.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-SemiBold.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Light.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Regular.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Italic.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Italic.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Medium.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-MediumItalic.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Bold.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-ExtraBold.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Effra";
-  src: url("/fonts/Effra-Black.ttf") format("truetype");
+  src: url("/fonts/Effra/Effra-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/fonts/Garamond/EBGaramond-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
 }
 
 :root {
@@ -120,6 +164,12 @@ body.dark-mode {
   --hover-color: #a58067;
   --button-text-color: #f0f0f0;
   -webkit-status-bar-style: black;
+}
+
+h1, h2, h3 {
+  font-family: "EBGaramond", serif !important;
+  font-weight: 500;
+  font-style: italic;
 }
 
 body {

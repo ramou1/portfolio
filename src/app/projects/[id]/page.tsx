@@ -47,9 +47,9 @@ export default async function ProjectDetail(props: { params: Params }) {
       </Link>
 
       <div className="flex flex-col lg:flex-row gap-12 mt-6">
-        {/* Informações do projeto (lado esquerdo) */}
+
         <div className="lg:w-1/2">
-          <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
+          <h1 className="text-5xl">{data.title}</h1>
           <div className="mb-4">
             <span className="inline-block text-white bg-[var(--accent-color)] rounded-full px-4 py-1 text-xs font-semibold uppercase transition-all duration-300 hover:scale-105">
               {data.category}
@@ -76,7 +76,8 @@ export default async function ProjectDetail(props: { params: Params }) {
             )}
           </div>
         </div>
-        {/* Imagens do projeto (lado direito) */}
+
+
         <div className="lg:w-1/2">
           <div className="rounded-lg overflow-hidden shadow-lg">
             <Image
