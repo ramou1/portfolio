@@ -67,7 +67,7 @@ export default async function ProjectDetail(props: { params: Params }) {
               </div>
             )}
           </div>
-          <p className="text-gray-700 mb-6">{data.description}</p>
+          <p className="text-gray-700 mb-6 text-lg">{data.description}</p>
 
           <div className="mt-12">
             {data.externalLink && (
@@ -75,7 +75,7 @@ export default async function ProjectDetail(props: { params: Params }) {
                 href={data.externalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-12 px-6 py-2 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+                className="mt-12 px-6 py-2 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
                 aria-label={data.ariaLabel}
               >
                 visitar projeto

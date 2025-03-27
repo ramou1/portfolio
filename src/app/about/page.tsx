@@ -76,7 +76,7 @@ export default function About() {
           <h2 className="mt-4 text-2xl font-bold">Ramon Oliveira</h2>
         </div>
         <div className="md:col-span-2 text-center md:text-left">
-          <h1 className="text-4xl font-bold mb-2">sobre mim</h1>
+          <h1 className="text-5xl font-bold mb-2">sobre mim</h1>
           <p className="text-lg">
             Sou um desenvolvedor frontend apaixonado por criar experiências
             digitais envolventes e responsivas. Com uma combinação de
@@ -97,7 +97,7 @@ export default function About() {
           viewport={{ once: true }}
           variants={fadeInVariants}
         >
-          <h2 className="text-3xl font-bold mb-2 text-center">minha jornada</h2>
+          <h2 className="text-4xl font-bold mb-2 text-center">minha jornada</h2>
           <p className="text-lg mb-8 whitespace-pre-line">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem
             nisi, suscipit quis dui sit amet, vehicula imperdiet orci. Phasellus
@@ -147,7 +147,7 @@ export default function About() {
         viewport={{ once: true }}
         variants={fadeInVariants}
       >
-        <h2 className="text-3xl font-bold mb-4 text-center">conhecimentos</h2>
+        <h2 className="text-4xl font-bold mb-4 text-center">conhecimentos</h2>
         <div className="w-full md:w-md flex flex-wrap justify-center gap-6 mx-auto mb-12">
           {techIcons.map(({ Icon, name }, index) => (
             <motion.div

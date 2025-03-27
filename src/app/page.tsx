@@ -111,7 +111,7 @@ export default function RootPage() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center text-4xl font-bold mt-12"
+        className="text-5xl text-center font-bold mt-12"
       >
         meus projetos
       </motion.h1>
@@ -146,7 +146,7 @@ export default function RootPage() {
           >
             <Link
               href="/projects"
-              className="mt-8 px-6 py-2 bg-transparent text-[var(--button-text-color)] border-2 border-[var(--button-text-color)] rounded-full text-base font-semibold transition-all duration-300 hover:bg-[var(--button-text-color)] hover:text-[var(--hover-color)]"
+              className="mt-8 px-6 py-2 bg-transparent text-[var(--button-text-color)] border-2 border-[var(--button-text-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--button-text-color)] hover:text-[var(--hover-color)]"
             >
               ver todos os projetos
             </Link>

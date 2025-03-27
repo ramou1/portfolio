@@ -137,7 +137,7 @@ const Header = () => {
               menuOpen ? "w-full" : ""
             } m-0 p-0 items-center`}
           >
-            <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
+            <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
               <Link
                 href="/projects"
                 className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-lg md:text-base transition-colors duration-300"
@@ -146,7 +146,7 @@ const Header = () => {
                 projetos
               </Link>
             </li>
-            <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
+            <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
               <Link
                 href="/about"
                 className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-lg md:text-base transition-colors duration-300"
@@ -155,7 +155,7 @@ const Header = () => {
                 sobre
               </Link>
             </li>
-            <li className={`${menuOpen ? "my-8 text-center" : "ml-8"}`}>
+            <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
               <button
                 onClick={requestThemeChange}
                 className="border border-[var(--border-color)] px-4 py-2 rounded-full text-[var(--border-color)] text-lg md:text-xs hover:bg-[var(--border-color)] hover:text-[var(--hover-color)] transition-all duration-300"

@@ -9,7 +9,7 @@ import "@/app/globals.css";
 
 const Slider = dynamic(() => import("react-slick"), {
   ssr: false,
-  loading: () => <div>Carregando...</div>
+  loading: () => <div>Carregando...</div>,
 });
 
 import "slick-carousel/slick/slick.css";
@@ -50,9 +50,7 @@ export default function Projects() {
 
   return (
     <div className="w-full">
-      <h1 className="text-center text-4xl font-bold mt-12">
-        meus projetos
-      </h1>
+      <h1 className="text-center text-5xl font-bold mt-12">meus projetos</h1>
 
       <div className="relative mt-4 mb-10">
         <Slider {...settings}>
@@ -71,7 +69,7 @@ export default function Projects() {
 
       <hr className="mt-12 mb-12 border-gray-300" />
 
-      <h1 className="text-center text-4xl font-bold mb-4">
+      <h1 className="text-4xl text-center font-bold mb-4">
         projetos que participei
       </h1>
 
@@ -92,9 +90,7 @@ export default function Projects() {
 
       <hr className="mt-12 mb-12 border-gray-300" />
 
-      <h1 className="text-center text-4xl font-bold mb-4">
-        artes
-      </h1>
+      <h1 className="text-4xl text-center font-bold mb-4">minhas artes</h1>
 
       <div className="relative mb-10">
         <Slider {...settings}>
