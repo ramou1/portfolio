@@ -71,7 +71,7 @@ export default async function ProjectDetail(props: { params: Params }) {
               </div>
             )}
           </div>
-          <p className="text-gray-700 mb-6 text-lg">{data.description}</p>
+          <p className="mb-6 text-lg">{data.description}</p>
 
           <div className="mt-12">
             {data.repoLink && (

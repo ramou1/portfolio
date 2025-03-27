@@ -63,7 +63,7 @@ export default function RootPage() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative w-full h-[300px] md:h-[600px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg"
+        className="relative w-full h-[300px] md:h-[600px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg cursor-pointer"
         aria-label="Carrossel de projetos em destaque"
       >
         {featuredSlides.map((project: any, index: any) => (
