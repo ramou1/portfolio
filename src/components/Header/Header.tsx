@@ -175,13 +175,13 @@ const Header = () => {
               <div className="flex justify-center gap-4 mt-6">
                 <button
                   onClick={confirmAction}
-                  className="bg-[var(--accent-color)] text-lg md:text-base text-white py-2 px-6 rounded font-medium transition-colors duration-300"
+                  className="bg-[var(--accent-color)] text-lg md:text-base text-white py-2 px-6 rounded-full font-medium transition-colors duration-300"
                 >
                   confirmar
                 </button>
                 <button
                   onClick={cancelAction}
-                  className="bg-stone-700 hover:bg-stone-600 text-lg md:text-base text-stone-100 py-2 px-6 rounded font-medium border border-stone-600 transition-colors duration-300"
+                  className="bg-stone-700 hover:bg-stone-600 text-lg md:text-base text-stone-100 py-2 px-6 rounded-full font-medium border border-stone-600 transition-colors duration-300"
                 >
                   cancelar
                 </button>

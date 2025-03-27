@@ -9,7 +9,7 @@ import "@/app/globals.css";
 
 const Slider = dynamic(() => import("react-slick"), {
   ssr: false,
-  loading: () => <div>Carregando...</div>,
+  loading: () => <div>carregando...</div>,
 });
 
 import "slick-carousel/slick/slick.css";
