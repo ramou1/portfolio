@@ -52,7 +52,7 @@ export default async function ProjectDetail(props: { params: Params }) {
       </button>
 
       <div className="flex flex-col lg:flex-row gap-12 mt-6">
-        <div className="lg:w-1/2">
+        <div className="lg:w-2/5">
           <h1 className="text-5xl">{data.title}</h1>
           <div className="mt-2 mb-4">
             <span className="inline-block text-white bg-[var(--accent-color)] rounded-full px-4 py-1 text-xs font-semibold uppercase transition-all duration-300 hover:scale-105">
@@ -108,7 +108,7 @@ export default async function ProjectDetail(props: { params: Params }) {
           </div>
         </div>
 
-        <div className="lg:w-1/2">
+        <div className="lg:w-3/5">
           <div className="rounded-lg overflow-hidden shadow-lg">
             <Image
               src={data.projectImage}

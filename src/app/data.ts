@@ -15,10 +15,10 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "laud-live",
-    title: "Laud Live",
+    id: "dj-laud",
+    title: "DJ Laud",
     projectImage: "/images/laud01.png",
-    altText: "Site da Laud Live, mostrando informações sobre astreaming e eventos ao vivo",
+    altText: "Site do DJ Laud, mostrando informações sobre astreaming e eventos ao vivo",
     slideImage: "/images/slide02.png",
     category: "web",
     tools: ["Wix", "HTML", "CSS"],

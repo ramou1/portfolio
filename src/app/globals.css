@@ -158,6 +158,11 @@
   --web-color: #526d37; 
   --design-color: #c17f54; 
   --teal-color: #297373;
+
+  --first-color: #cad6ae;
+  --second-color: #e2efcc;
+  --third-color: #ffdcaa;
+  --fourth-color: #ffb89a;
 }
 
 body.dark-mode {
