@@ -140,7 +140,7 @@ const Header = () => {
             <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
               <Link
                 href="/projects"
-                className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-lg md:text-base transition-colors duration-300"
+                className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-xl md:text-base transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 projetos
@@ -149,7 +149,7 @@ const Header = () => {
             <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
               <Link
                 href="/about"
-                className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-lg md:text-base transition-colors duration-300"
+                className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-xl md:text-base transition-colors duration-300"
                 onClick={() => setMenuOpen(false)}
               >
                 sobre
@@ -167,21 +167,21 @@ const Header = () => {
         </nav>
 
         {confirmationOpen && (
-          <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-[2000]">
+          <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-[2000]">
             <div className="bg-stone-700 p-8 rounded-lg w-[90%] max-w-[400px] text-center shadow-lg border-1 border-stone-600">
-              <p className="text-white">
+              <p className="text-lg md:text-base text-white">
                 deseja alterar para o {darkMode ? "modo claro" : "modo escuro"}?
               </p>
               <div className="flex justify-center gap-4 mt-6">
                 <button
                   onClick={confirmAction}
-                  className="bg-[var(--accent-color)] text-white py-2 px-6 rounded font-medium transition-colors duration-300"
+                  className="bg-[var(--accent-color)] text-lg md:text-base text-white py-2 px-6 rounded font-medium transition-colors duration-300"
                 >
                   confirmar
                 </button>
                 <button
                   onClick={cancelAction}
-                  className="bg-stone-700 hover:bg-stone-600 text-stone-100 py-2 px-6 rounded font-medium border border-stone-600 transition-colors duration-300"
+                  className="bg-stone-700 hover:bg-stone-600 text-lg md:text-base text-stone-100 py-2 px-6 rounded font-medium border border-stone-600 transition-colors duration-300"
                 >
                   cancelar
                 </button>
