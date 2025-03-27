@@ -59,7 +59,7 @@ export default async function ProjectDetail(props: { params: Params }) {
                 {data.tools.map((tool, index) => (
                   <span
                     key={index}
-                    className="inline-block text-white bg-[#cbd6ae] rounded-full px-4 py-1 text-xs font-semibold text-gray-700 uppercase"
+                    className="inline-block text-gray-700 bg-[#cbd6ae] rounded-full px-4 py-1 text-xs font-semibold text-gray-700 uppercase"
                   >
                     {tool}
                   </span>

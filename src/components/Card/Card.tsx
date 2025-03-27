@@ -8,6 +8,21 @@ interface CardProps {
   onClick: () => void;
 }
 
+const getCategoryColor = (category: string) => {
+  switch (category) {
+    case "mobile":
+      return "var(--mobile-color)";
+    case "web":
+      return "var(--web-color)";
+    case "design":
+      return "var(--design-color)";
+    case "ai":
+      return "var(--teal-color)";
+    default:
+      return "var(--teal-color)";
+  }
+};
+
 const Card = ({
   image,
   title,
@@ -31,7 +46,10 @@ const Card = ({
         />
       </div>
       <div className="pt-2 pb-4">
-        <span className="inline-flex items-center rounded-xl bg-[var(--accent-color)] text-white px-3 py-1 mb-2 text-xs uppercase">
+        <span
+          className="inline-flex items-center rounded-xl text-white px-3 py-1 mb-2 text-xs uppercase"
+          style={{ backgroundColor: getCategoryColor(category) }}
+        >
           {category}
         </span>
 

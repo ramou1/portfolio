@@ -7,9 +7,7 @@ module.exports = {
         // "brown": "#784f41",
         // "dark-brown": "#2f2826",
         // "light-brown": "#c7a27c",
-        // "mint-cream": "#d7fdf0",
         // "dark-teal": "#297373",
-        // "yellow": "#ffcc00",
 
         "background-color": "#fffae0",
         "text-color": "#000000",

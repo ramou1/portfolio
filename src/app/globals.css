@@ -145,7 +145,7 @@
 
 :root {
   --background-color: #fcf9e9;
-  --text-color: #000000;
+  --text-color: #222222;
   --secondary-bg-color: #f8f8f8;
   --accent-color: #a58067;
   --border-color: #a58067;
@@ -153,6 +153,11 @@
   --button-text-color: #784f41;
   --status-bar-light: #ffffff;
   --status-bar-dark: #1a1a1a;
+
+  --mobile-color: #572d2c;
+  --web-color: #526d37; 
+  --design-color: #c17f54; 
+  --teal-color: #297373;
 }
 
 body.dark-mode {
