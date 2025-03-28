@@ -81,7 +81,7 @@ export default function Projects() {
                 image={project.projectImage}
                 title={project.title}
                 category={project.category}
-                onClick={() => navigateToProject(project.id + 100)}
+                onClick={() => navigateToProject(project.id)}
               />
             </div>
           ))}

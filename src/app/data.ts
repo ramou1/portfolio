@@ -98,7 +98,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const participations = [
+export const participations: Project[] = [
   {
     id: "meelnutri2",
     title: "MeelNutri",
@@ -166,7 +166,7 @@ export const participations = [
   }
 ];
 
-export const arts = [
+export const arts: Project[] = [
   {
     id: "lands",
     title: "Tipos de Terrenos",
