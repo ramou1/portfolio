@@ -91,8 +91,17 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
           </div>
         </div>
 
+        {/* {project.tools.map((tool, index) => (
+          <span
+            key={index}
+            className="inline-block text-gray-700 bg-[#cbd6ae] rounded-full px-4 py-1 text-xs font-semibold text-gray-700 uppercase"
+          >
+            {tool}
+          </span>
+        ))} */}
+
         <div className="lg:w-3/5">
-          <div className="rounded-lg overflow-hidden shadow-lg">
+          {/* <div className="rounded-lg overflow-hidden shadow-lg">
             <Image
               src={project.projectImage}
               alt={project.altText || `Imagem do projeto ${project.title}`}
@@ -100,6 +109,20 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
               height={500}
               className="w-full h-auto"
             />
+          </div> */}
+
+          <div className="space-y-4">
+            {project.images.map((imageUrl, index) => (
+              <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src={imageUrl}
+                  alt={`Imagem ${index + 1} do projeto ${project.title}`}
+                  width={800}
+                  height={500}
+                  className="w-full h-auto"
+                />
+              </div>
+            ))}
           </div>
 
           {project.slideImage && (

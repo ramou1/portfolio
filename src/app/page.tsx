@@ -128,7 +128,7 @@ export default function RootPage() {
           {featuredProjects.map((project: any) => (
             <motion.div key={project.id} variants={itemVariants}>
               <Card
-                image={project.projectImage}
+                image={project.images[0]}
                 title={project.title}
                 category={project.category}
                 onClick={() => navigateToProject(project.id)}

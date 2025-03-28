@@ -57,7 +57,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div key={project.id} className="px-2">
               <Card
-                image={project.projectImage}
+                image={project.images[0]}
                 title={project.title}
                 category={project.category}
                 onClick={() => navigateToProject(project.id)}
@@ -78,7 +78,7 @@ export default function Projects() {
           {participations.map((project) => (
             <div key={project.id} className="px-2">
               <Card
-                image={project.projectImage}
+                image={project.images[0]}
                 title={project.title}
                 category={project.category}
                 onClick={() => navigateToProject(project.id)}
@@ -97,7 +97,7 @@ export default function Projects() {
           {arts.map((project) => (
             <div key={project.id} className="px-2">
               <Card
-                image={project.projectImage}
+                image={project.images[0]}
                 title={project.title}
                 category={project.category}
                 onClick={() => navigateToProject(project.id)}

@@ -2,7 +2,7 @@
 export interface Project {
     id: string;
     title: string;
-    projectImage: string;
+    images: string[];
     altText: string;
     slideImage: string;
     category: string;

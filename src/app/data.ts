@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "terapeuta-bele",
     title: "Terapeuta Bele",
-    projectImage: "/images/terapeuta01.png",
+    images: ["/images/terapeuta01.png"],
     altText: "Site da Terapeuta Bele, mostrando informações sobre terapias e agendamentos",
     slideImage: "/images/slide01.png",
     category: "web",
@@ -17,7 +17,7 @@ export const projects: Project[] = [
   {
     id: "dj-laud",
     title: "DJ Laud",
-    projectImage: "/images/laud01.png",
+    images: ["/images/laud01.png"],
     altText: "Site do DJ Laud, mostrando informações sobre astreaming e eventos ao vivo",
     slideImage: "/images/slide02.png",
     category: "web",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     id: "hostelzim",
     title: "HostelZim",
-    projectImage: "/images/portfolio03.png",
+    images: ["/images/portfolio03.png"],
     altText: "Interface do sistema HostelZim mostrando uma lista de quartos e clientes",
     slideImage: "/images/slide03.png",
     category: "web",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     id: "music-chords",
     title: "Music Chords",
-    projectImage: "/images/portfolio04.png",
+    images: ["/images/portfolio04.png"],
     altText: "Interface do aplicativo Music Chords mostrando uma lista de acordes e formulário de criação de acorde",
     slideImage: "/images/slide01.png",
     category: "mobile",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
   {
     id: "gimme-pizza",
     title: "Gimme Pizza",
-    projectImage: "/images/portfolio05.png",
+    images: ["/images/portfolio05.png"],
     altText: "Interface do sistema de Chamados mostrando uma lista de chamados e formulário de criação de chamado",
     slideImage: "/images/slide02.png",
     category: "web",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
   {
     id: "gestao-de-projetos",
     title: "Gestão de Projetos",
-    projectImage: "/images/portfolio06.png",
+    images: ["/images/portfolio06.png"],
     altText: "Dashboard do aplicativo de Gestão de Projetos exibindo quadro Kanban com tarefas",
     slideImage: "/images/slide03.png",
     category: "design",
@@ -85,7 +85,7 @@ export const projects: Project[] = [
   {
     id: "sistema-de-orcamentos",
     title: "Sistema de Orçamentos",
-    projectImage: "/images/portfolio07.png",
+    images: ["/images/portfolio07.png"],
     altText: "Tela do Sistema de Orçamentos mostrando um formulário de criação de orçamento e lista de orçamentos recentes",
     slideImage: "/images/slide01.png",
     category: "web",
@@ -102,7 +102,7 @@ export const participations: Project[] = [
   {
     id: "meelnutri2",
     title: "MeelNutri",
-    projectImage: "/images/portfolio08.png",
+    images: ["/images/portfolio08.png"],
     altText: "Interface do aplicativo MeelNutri mostrando planos alimentares e acompanhamento nutricional",
     slideImage: "/images/slide01.png",
     category: "mobile",
@@ -115,7 +115,7 @@ export const participations: Project[] = [
   {
     id: "funcorsan2",
     title: "Funcorsan",
-    projectImage: "/images/portfolio09.png",
+    images: ["/images/portfolio09.png"],
     altText: "Interface do aplicativo Funcorsan exibindo serviços e informações para associados",
     slideImage: "/images/slide01.png",
     category: "mobile",
@@ -128,7 +128,7 @@ export const participations: Project[] = [
   {
     id: "laudelina2",
     title: "Laudelina",
-    projectImage: "/images/portfolio10.png",
+    images: ["/images/portfolio10.png"],
     altText: "Interface do aplicativo Laudelina exibindo informações e suporte para trabalhadoras domésticas",
     slideImage: "/images/slide01.png",
     category: "mobile",
@@ -141,7 +141,7 @@ export const participations: Project[] = [
   {
     id: "purificatta2",
     title: "Purificatta",
-    projectImage: "/images/portfolio03.png",
+    images: ["/images/portfolio03.png"],
     altText: "Interface do aplicativo Purificatta exibindo gerenciamento de assinaturas de purificadores de água",
     slideImage: "/images/slide01.png",
     category: "mobile",
@@ -154,7 +154,7 @@ export const participations: Project[] = [
   {
     id: "purificatta-adesao2",
     title: "Purificatta Adesão",
-    projectImage: "/images/portfolio04.png",
+    images: ["/images/portfolio04.png"],
     altText: "Interface do aplicativo Purificatta Adesão exibindo opções de assinatura para purificadores de água",
     slideImage: "/images/slide01.png",
     category: "mobile",
@@ -170,7 +170,7 @@ export const arts: Project[] = [
   {
     id: "lands",
     title: "Tipos de Terrenos",
-    projectImage: "/images/portfolio05.png",
+    images: ["/images/portfolio05.png"],
     altText: "Tipos de Terrenos",
     slideImage: "/images/slide01.png",
     category: "design",
@@ -183,7 +183,7 @@ export const arts: Project[] = [
   {
     id: "personagens",
     title: "Design de Personagens",
-    projectImage: "/images/portfolio06.png",
+    images: ["/images/portfolio06.png"],
     altText: "Design de Personagens",
     slideImage: "/images/slide01.png",
     category: "design",
@@ -196,7 +196,7 @@ export const arts: Project[] = [
   {
     id: "jogo-da-memoria",
     title: "Jogo da Memória - Frutas",
-    projectImage: "/images/portfolio07.png",
+    images: ["/images/portfolio07.png"],
     altText: "Jogo da Memória - Frutas",
     slideImage: "/images/slide01.png",
     category: "design",
@@ -209,7 +209,7 @@ export const arts: Project[] = [
   {
     id: "vetorizacao",
     title: "Vetorização de Desenhos",
-    projectImage: "/images/portfolio08.png",
+    images: ["/images/portfolio08.png"],
     altText: "Artes",
     slideImage: "/images/slide01.png",
     category: "design",
@@ -222,7 +222,7 @@ export const arts: Project[] = [
   {
     id: "catalogo",
     title: "Catálogo de Animais",
-    projectImage: "/images/portfolio09.png",
+    images: ["/images/portfolio09.png"],
     altText: "Artes",
     slideImage: "/images/slide01.png",
     category: "design",
@@ -235,7 +235,7 @@ export const arts: Project[] = [
   {
     id: "desenvolveu-tech",
     title: "Redes Sociais - desenvolveuTECH",
-    projectImage: "/images/portfolio10.png",
+    images: ["/images/portfolio10.png"],
     altText: "Artes",
     slideImage: "/images/slide01.png",
     category: "design",
@@ -248,7 +248,7 @@ export const arts: Project[] = [
   {
     id: "m-de-moveis",
     title: "Redes Sociais - M de Móveis",
-    projectImage: "/images/portfolio06.png",
+    images: ["/images/portfolio06.png"],
     altText: "Artes",
     slideImage: "/images/slide01.png",
     category: "design",
