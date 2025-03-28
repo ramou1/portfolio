@@ -10,9 +10,9 @@ import { Project } from "@/models/Project";
 
 export default function ProjectDetail({ params }: { params: { id: string } }) {
   const router = useRouter();
-  const projectId = params.id.replace(/\d+$/, ""); // Remove números no final
+  const { id } = params;
+  const projectId = id;
 
-  // Função simplificada para encontrar o projeto
   const findProject = () => {
     const allProjects = [...projects, ...participations, ...arts];
     return allProjects.find((p) => p.id === projectId);
