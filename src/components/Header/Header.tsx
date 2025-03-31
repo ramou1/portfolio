@@ -46,6 +46,15 @@ const Header = () => {
     setActionPending(null);
   };
 
+  // Função para rolar suavemente até o footer
+  const scrollToFooter = () => {
+    const footer = document.querySelector("footer");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
+  };
+
   // Fechar o menu ao clicar fora dele
   useEffect(() => {
     // Função genérica para lidar com cliques fora
@@ -154,6 +163,14 @@ const Header = () => {
               >
                 sobre
               </Link>
+            </li>
+            <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
+              <button
+                onClick={scrollToFooter}
+                className="text-[var(--text-color)] hover:text-[var(--accent-color)] font-medium text-xl md:text-base transition-colors duration-300"
+              >
+                contato
+              </button>
             </li>
             <li className={`${menuOpen ? "my-6 text-center" : "ml-8"}`}>
               <button
