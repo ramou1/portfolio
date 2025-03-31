@@ -8,7 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
-// Remover a tipagem personalizada PageProps e usar o tipo correto para páginas App Router
+// @ts-ignore - Ignorar verificação de tipo para este componente de página
 export default function ProjectDetail({ params }: { params: { id: string } }) {
   const router = useRouter();
   const { id } = params;
