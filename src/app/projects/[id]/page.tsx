@@ -8,14 +8,8 @@ import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-export default function ProjectDetail({ params }: PageProps) {
+// Remover a tipagem personalizada PageProps e usar o tipo correto para páginas App Router
+export default function ProjectDetail({ params }: { params: { id: string } }) {
   const router = useRouter();
   const { id } = params;
   const projectId = id;
