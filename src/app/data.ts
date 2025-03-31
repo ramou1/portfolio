@@ -198,7 +198,6 @@ export const arts: Project[] = [
     title: "Jogo da Memória - Frutas",
     images: ["/images/portfolio07.png"],
     altText: "Jogo da Memória - Frutas",
-    slideImage: "/images/slide01.png",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
     description: "Ícones de frutas para o jogo da memória desenvolvido no curso de Programação de Jogos Digitais, em 2013.",

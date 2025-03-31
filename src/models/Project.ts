@@ -4,7 +4,7 @@ export interface Project {
     title: string;
     images: string[];
     altText: string;
-    slideImage: string;
+    slideImage?: string;
     category: string;
     tools: string[];
     description: string;
