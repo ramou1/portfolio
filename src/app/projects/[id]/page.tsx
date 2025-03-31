@@ -8,7 +8,14 @@ import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
-export default function ProjectDetail({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function ProjectDetail({ params }: PageProps) {
   const router = useRouter();
   const { id } = params;
   const projectId = id;
@@ -91,26 +98,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        {/* {project.tools.map((tool, index) => (
-          <span
-            key={index}
-            className="inline-block text-gray-700 bg-[#cbd6ae] rounded-full px-4 py-1 text-xs font-semibold text-gray-700 uppercase"
-          >
-            {tool}
-          </span>
-        ))} */}
-
         <div className="lg:w-3/5">
-          {/* <div className="rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={project.projectImage}
-              alt={project.altText || `Imagem do projeto ${project.title}`}
-              width={800}
-              height={500}
-              className="w-full h-auto"
-            />
-          </div> */}
-
           <div className="space-y-4">
             {project.images.map((imageUrl, index) => (
               <div key={index} className="rounded-lg overflow-hidden shadow-lg">
