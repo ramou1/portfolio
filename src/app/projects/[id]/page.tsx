@@ -9,17 +9,16 @@ import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
 interface ProjectDetailPageProps {
-  params: {
-    id: string; // O parâmetro da URL dinâmica
-  };
+  params: { id: string };
 }
 
 export default function ProjectDetail({ params }: ProjectDetailPageProps) {
   const router = useRouter();
+
   const { id } = params;
   const projectId = id;
 
-  const findProject = (): Project | undefined => { 
+  const findProject = (): Project | undefined => {
     const allProjects: Project[] = [...projects, ...participations, ...arts];
     return allProjects.find((p) => p.id === projectId);
   };
