@@ -8,14 +8,19 @@ import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
-// @ts-ignore - Ignorar verificação de tipo para este componente de página
-export default function ProjectDetail({ params }: { params: { id: string } }) {
+interface ProjectDetailPageProps {
+  params: {
+    id: string; // O parâmetro da URL dinâmica
+  };
+}
+
+export default function ProjectDetail({ params }: ProjectDetailPageProps) {
   const router = useRouter();
   const { id } = params;
   const projectId = id;
 
-  const findProject = () => {
-    const allProjects = [...projects, ...participations, ...arts];
+  const findProject = (): Project | undefined => { 
+    const allProjects: Project[] = [...projects, ...participations, ...arts];
     return allProjects.find((p) => p.id === projectId);
   };
 

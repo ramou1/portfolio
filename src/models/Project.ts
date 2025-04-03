@@ -1,4 +1,3 @@
-// src/models/Project.ts
 export interface Project {
     id: string;
     title: string;
