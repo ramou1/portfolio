@@ -8,15 +8,15 @@ import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
-interface ProjectDetailPageProps {
-  params: { id: string };
+interface ProjectDetailProps {
+  params: Promise<{ id: string }>;
 }
 
-export default function ProjectDetail({ params }: ProjectDetailPageProps) {
+export default function ProjectDetail({ params }: ProjectDetailProps) {
   const router = useRouter();
 
-  const { id } = params;
-  const projectId = id;
+  const resolvedParams = React.use(params);
+  const projectId = resolvedParams.id;
 
   const findProject = (): Project | undefined => {
     const allProjects: Project[] = [...projects, ...participations, ...arts];
@@ -29,9 +29,8 @@ export default function ProjectDetail({ params }: ProjectDetailPageProps) {
     notFound();
   }
 
-  // Helper function to determine if a file is a video
   const isVideo = (url: string): boolean => {
-    return url.endsWith('.mp4');
+    return url.endsWith(".mp4");
   };
 
   return (
