@@ -9,7 +9,7 @@ import "@/app/globals.css";
 
 const Slider = dynamic(() => import("react-slick"), {
   ssr: false,
-  loading: () => <div>carregando...</div>,
+  loading: () => <h2 className="text-center">carregando...</h2>,
 });
 
 import "slick-carousel/slick/slick.css";
@@ -44,6 +44,11 @@ export default function Projects() {
     ],
   };
 
+  // Helper function to determine if a file is a video
+  const getMediaType = (url: string) => {
+    return url.endsWith('.mp4') ? "video" : "image";
+  };
+
   const navigateToProject = (id: any) => {
     router.push(`/projects/${id}`);
   };
@@ -54,16 +59,22 @@ export default function Projects() {
 
       <div className="relative mt-4 mb-10">
         <Slider {...settings}>
-          {projects.map((project) => (
-            <div key={project.id} className="px-2">
-              <Card
-                image={project.images[0]}
-                title={project.title}
-                category={project.category}
-                onClick={() => navigateToProject(project.id)}
-              />
-            </div>
-          ))}
+          {projects.map((project) => {
+            const firstMedia = project.images[0];
+            const mediaType = getMediaType(firstMedia);
+            
+            return (
+              <div key={project.id} className="px-2">
+                <Card
+                  media={firstMedia}
+                  title={project.title}
+                  category={project.category}
+                  mediaType={mediaType}
+                  onClick={() => navigateToProject(project.id)}
+                />
+              </div>
+            );
+          })}
         </Slider>
       </div>
 
@@ -75,16 +86,22 @@ export default function Projects() {
 
       <div className="relative mb-10">
         <Slider {...settings}>
-          {participations.map((project) => (
-            <div key={project.id} className="px-2">
-              <Card
-                image={project.images[0]}
-                title={project.title}
-                category={project.category}
-                onClick={() => navigateToProject(project.id)}
-              />
-            </div>
-          ))}
+          {participations.map((project) => {
+            const firstMedia = project.images[0];
+            const mediaType = getMediaType(firstMedia);
+            
+            return (
+              <div key={project.id} className="px-2">
+                <Card
+                  media={firstMedia}
+                  title={project.title}
+                  category={project.category}
+                  mediaType={mediaType}
+                  onClick={() => navigateToProject(project.id)}
+                />
+              </div>
+            );
+          })}
         </Slider>
       </div>
 
@@ -94,16 +111,22 @@ export default function Projects() {
 
       <div className="relative mb-10">
         <Slider {...settings}>
-          {arts.map((project) => (
-            <div key={project.id} className="px-2">
-              <Card
-                image={project.images[0]}
-                title={project.title}
-                category={project.category}
-                onClick={() => navigateToProject(project.id)}
-              />
-            </div>
-          ))}
+          {arts.map((project) => {
+            const firstMedia = project.images[0];
+            const mediaType = getMediaType(firstMedia);
+            
+            return (
+              <div key={project.id} className="px-2">
+                <Card
+                  media={firstMedia}
+                  title={project.title}
+                  category={project.category}
+                  mediaType={mediaType}
+                  onClick={() => navigateToProject(project.id)}
+                />
+              </div>
+            );
+          })}
         </Slider>
       </div>
     </div>

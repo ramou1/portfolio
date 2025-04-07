@@ -29,6 +29,11 @@ export default function ProjectDetail({ params }: ProjectDetailPageProps) {
     notFound();
   }
 
+  // Helper function to determine if a file is a video
+  const isVideo = (url: string): boolean => {
+    return url.endsWith('.mp4');
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <button
@@ -98,28 +103,52 @@ export default function ProjectDetail({ params }: ProjectDetailPageProps) {
 
         <div className="lg:w-3/5">
           <div className="space-y-4">
-            {project.images.map((imageUrl, index) => (
+            {project.images.map((mediaUrl, index) => (
               <div key={index} className="rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src={imageUrl}
-                  alt={`Imagem ${index + 1} do projeto ${project.title}`}
-                  width={800}
-                  height={500}
-                  className="w-full h-auto"
-                />
+                {isVideo(mediaUrl) ? (
+                  <video
+                    src={mediaUrl}
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto"
+                  />
+                ) : (
+                  <Image
+                    src={mediaUrl}
+                    alt={`Imagem ${index + 1} do projeto ${project.title}`}
+                    width={800}
+                    height={500}
+                    className="w-full h-auto"
+                  />
+                )}
               </div>
             ))}
           </div>
 
           {project.slideImage && (
             <div className="mt-6 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src={project.slideImage}
-                alt={`Slide do projeto ${project.title}`}
-                width={800}
-                height={500}
-                className="w-full h-auto"
-              />
+              {isVideo(project.slideImage) ? (
+                <video
+                  src={project.slideImage}
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto"
+                />
+              ) : (
+                <Image
+                  src={project.slideImage}
+                  alt={`Slide do projeto ${project.title}`}
+                  width={800}
+                  height={500}
+                  className="w-full h-auto"
+                />
+              )}
             </div>
           )}
         </div>

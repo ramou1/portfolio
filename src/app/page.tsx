@@ -33,6 +33,11 @@ export default function RootPage() {
     router.push(`/projects/${id}`);
   };
 
+  // Helper function to determine media type
+  const getMediaType = (url: string) => {
+    return url.endsWith(".mp4") ? "video" : "image";
+  };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,27 +71,42 @@ export default function RootPage() {
         className="relative w-full h-[300px] md:h-[600px] mx-auto mb-8 overflow-hidden rounded-3xl shadow-lg cursor-pointer"
         aria-label="Carrossel de projetos em destaque"
       >
-        {featuredSlides.map((project: any, index: any) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: index === currentSlide ? 1 : 0,
-              transition: { duration: 1 },
-            }}
-            className={`absolute w-full h-full transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-            onClick={() => navigateToProject(project.id)}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              src={project.slideImage}
-              alt={project.altText}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        ))}
+        {featuredSlides.map((project: any, index: any) => {
+          const isVideo = project.slideImage.endsWith(".mp4");
+
+          return (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: index === currentSlide ? 1 : 0,
+                transition: { duration: 1 },
+              }}
+              className={`absolute w-full h-full transition-opacity duration-1000 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+              onClick={() => navigateToProject(project.id)}
+              style={{ cursor: "pointer" }}
+            >
+              {isVideo ? (
+                <video
+                  src={project.slideImage}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={project.slideImage}
+                  alt={project.altText}
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </motion.div>
+          );
+        })}
 
         {/* Slider navigation dots */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
@@ -125,16 +145,22 @@ export default function RootPage() {
         className="w-full flex flex-col items-center"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 w-full">
-          {featuredProjects.map((project: any) => (
-            <motion.div key={project.id} variants={itemVariants}>
-              <Card
-                image={project.images[0]}
-                title={project.title}
-                category={project.category}
-                onClick={() => navigateToProject(project.id)}
-              />
-            </motion.div>
-          ))}
+          {featuredProjects.map((project: any) => {
+            const firstMedia = project.images[0];
+            const mediaType = getMediaType(firstMedia);
+
+            return (
+              <motion.div key={project.id} variants={itemVariants}>
+                <Card
+                  media={firstMedia}
+                  mediaType={mediaType}
+                  title={project.title}
+                  category={project.category}
+                  onClick={() => navigateToProject(project.id)}
+                />
+              </motion.div>
+            );
+          })}
         </div>
 
         <div className="mt-12 mb-8">

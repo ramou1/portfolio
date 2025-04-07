@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "dj-laud",
     title: "DJ Laud",
-    images: ["/images/laud01.png"],
+    images: ["/images/laud01.mp4"],
     altText: "Site do DJ Laud, mostrando informações sobre astreaming e eventos ao vivo",
     slideImage: "/images/slide02.png",
     category: "web",
