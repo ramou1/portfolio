@@ -78,17 +78,25 @@ export default function About() {
         <div className="md:col-span-2 text-center md:text-left">
           <h1 className="text-5xl font-bold mb-2">sobre mim</h1>
           <p className="text-lg">
-            Sou um desenvolvedor frontend apaixonado por criar experiências
-            digitais envolventes e responsivas. Com uma combinação de
-            criatividade técnica e atenção aos detalhes, transformo conceitos em
-            interfaces elegantes e funcionais. Meu objetivo é sempre ir além do
-            código, criando soluções que não apenas funcionam, mas que encantam
-            os usuários.
+            Sou um Analista e Desenvolvedor de Sistemas com mais de sete anos de
+            experiência em projetos de desenvolvimento de software, abrangendo
+            web e mobile. Tenho ampla expertise na criação e manutenção de
+            websites, aplicativos e landing pages, com destaque para o uso de
+            tecnologias como <span className="hover:bg-[var(--web-color)]">HTML</span>, 
+            <span className="hover:bg-[var(--accent-color)]"> CSS/SASS</span>, 
+            <span className="hover:bg-[var(--web-color)]"> Tailwind</span>, 
+            <span className="hover:bg-[var(--accent-color)]"> WordPress</span>, 
+            <span className="hover:bg-[var(--web-color)]"> Bootstrap</span>, 
+            <span className="hover:bg-[var(--accent-color)]"> Angular</span>, 
+            <span className="hover:bg-[var(--web-color)]"> TypeScript</span>, 
+            <span className="hover:bg-[var(--accent-color)]"> Ionic</span>, 
+            <span className="hover:bg-[var(--web-color)]"> Firebase</span> e
+            <span className="hover:bg-[var(--accent-color)]"> React</span>.
           </p>
         </div>
       </motion.div>
 
-      <hr className="border-t-2 border-gray-200" />
+      <hr className="border-t-2 border-[var(--first-color)]" />
 
       <div className="text-center">
         <motion.div
@@ -99,47 +107,28 @@ export default function About() {
         >
           <h2 className="text-4xl font-bold mb-2 text-center">minha jornada</h2>
           <p className="text-lg mb-8 whitespace-pre-line">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem
-            nisi, suscipit quis dui sit amet, vehicula imperdiet orci. Phasellus
-            orci nibh, tempor a lorem eget, fringilla sodales libero. Nullam at
-            convallis nunc. Sed pellentesque non metus eu efficitur. Nullam
-            venenatis dolor tortor, in rutrum sapien semper eget. Mauris pretium
-            venenatis felis, ut bibendum erat. Ut non convallis urna. Curabitur
-            sit amet maximus quam. Etiam at leo mi. Nam a dapibus orci,
-            consequat semper massa. Aenean a euismod mi. Duis auctor urna a
-            mauris volutpat molestie. Duis in diam ac nisl accumsan efficitur
-            eget eu ligula. Nunc eu finibus ipsum. Praesent erat sem, iaculis
-            eget blandit vel, cursus vitae libero. Aliquam erat volutpat. Ut sed
-            massa ut libero lobortis tincidunt non quis arcu. Nam a pharetra
-            turpis, in semper quam. Nam in metus eu lorem tempor faucibus.
-            Quisque vel egestas odio. Vestibulum nec sagittis est. Nulla a
-            malesuada ipsum. Fusce congue sem a sapien elementum, id fermentum
-            tortor semper. Praesent quis enim purus.
+            Em minha trajetória, desempenhei papéis que vão desde o
+            desenvolvimento de interfaces responsivas até a administração de
+            servidores e configuração de contas de e-mail para clientes. No
+            desenvolvimento mobile, atuo principalmente com Ionic, Angular e
+            Firebase, focando na experiência do usuário e na integração de APIs
+            e serviços externos.
           </p>
           <div className="my-8 bg-gray-800 h-[480px] w-full flex items-center justify-center text-gray-500 rounded-3xl">
             1280x480
           </div>
           <p className="text-lg mb-8 whitespace-pre-line">
-            Donec ornare vel magna eget placerat. Nunc vel augue fringilla,
-            porta dui et, aliquam turpis. Proin finibus urna consectetur risus
-            blandit cursus. Cras eleifend lacus eros, eget blandit lorem mattis
-            sit amet. Integer sit amet nisi nec leo accumsan consequat. Quisque
-            tincidunt, erat eu dictum dictum, arcu turpis dignissim velit, vitae
-            volutpat lacus ante et elit. Nulla bibendum ultricies nisl, in
-            tincidunt arcu auctor id. Quisque leo ligula, luctus ac ullamcorper
-            non, pellentesque at metus. In hac habitasse platea dictumst. Mauris
-            sagittis suscipit leo nec aliquam. Fusce eu ante molestie, hendrerit
-            sem ac, tristique tortor. Donec fringilla rhoncus risus ac
-            condimentum. Aenean hendrerit, massa sed pretium molestie, tellus
-            augue venenatis metus, vitae rhoncus magna est eget nunc.
-            Pellentesque egestas consectetur urna, eu rhoncus leo cursus sit
-            amet. Fusce quis eros vitae nunc sollicitudin pretium. Donec nulla
-            tortor, pharetra at molestie vitae, porttitor suscipit lorem.
+            Já desenvolvi projetos para diversas áreas, incluindo construção
+            civil, nutrição e previdência, adaptando soluções tecnológicas às
+            necessidades específicas de cada setor. Ao longo da minha carreira,
+            trabalhei com equipes multidisciplinares, colaborando em todas as
+            etapas, desde o design até a implementação de funcionalidades
+            avançadas.
           </p>
         </motion.div>
       </div>
 
-      <hr className="border-t-2 border-gray-200" />
+      <hr className="border-t-2  border-[var(--second-color)]" />
 
       <motion.div
         initial="hidden"

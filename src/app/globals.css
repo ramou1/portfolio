@@ -182,6 +182,14 @@ h1, h2, h3 {
   font-style: italic;
 }
 
+h1:hover {
+  text-shadow: 3px 3px 0 var(--accent-color);
+}
+
+h2:hover {
+  text-shadow: 2px 2px 0 var(--teal-color);
+}
+
 body {
   font-family: "Effra", sans-serif;
   background-color: var(--background-color);

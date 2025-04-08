@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-5 border-t border-gray-700 text-sm text-gray-500">
+        <div className="mt-10 pt-5 border-t border-[var(--first-color)] text-sm text-gray-500">
           <p>
             © {new Date().getFullYear()} Ramon Oliveira. Todos os direitos
             reservados.
