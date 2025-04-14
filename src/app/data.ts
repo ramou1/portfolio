@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "dj-laud",
     title: "DJ Laud",
-    images: ["/images/laud01.mp4"],
+    images: ["/images/projects/laud01.mp4"],
     altText: "Site do DJ Laud de Hardtechno, Hardstyle e Trance, mostrando informações sobre próximos shows.",
     slideImage: "/images/slide02.png",
     category: "web",
@@ -17,7 +17,7 @@ export const projects: Project[] = [
   {
     id: "terapeuta-bele",
     title: "Terapeuta Bele",
-    images: ["/images/terapeuta01.png"],
+    images: ["/images/portfolio01.png"],
     altText: "Site da Terapeuta Bele, mostrando informações sobre terapias e agendamentos",
     slideImage: "/images/slide01.png",
     category: "web",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     id:"rca",
     title: "RCA Contabilidade",
-    images: ["/images/rca01.png"],
+    images: ["/images/projects/rca01.png"],
     altText: "Site da RCA Contabilidade, mostrando informações sobre serviços contábeis",
     category: "web",
     tools: ["Wix", "HTML", "CSS", "Javascript"],
@@ -42,7 +42,7 @@ export const projects: Project[] = [
   {
     id: "miraggio-villa-branca",
     title: "Miraggio Villa Branca",
-    images: ["/images/miraggio.mp4"],
+    images: ["/images/projects/miraggio.mp4"],
     altText: "Landing page do Miraggio Villa Branca, mostrando informações sobre o local.",
     category: "web",
     tools: ["Wordpress", "Elementor", "HTML", "CSS", "Javascript"],
@@ -54,7 +54,7 @@ export const projects: Project[] = [
   {
     id: "hostelzim",
     title: "HostelZim",
-    images: ["/images/portfolio01.png"],
+    images: ["/images/portfolio02.png"],
     altText: "Interface do sistema HostelZim mostrando uma lista de quartos e clientes",
     category: "web",
     tools: ["React", "Chakra UI", "Chart.js", "Axios"],
@@ -67,7 +67,7 @@ export const projects: Project[] = [
   {
     id: "music-chords",
     title: "Music Chords",
-    images: ["/images/portfolio02.png"],
+    images: ["/images/portfolio03.png"],
     altText: "Interface do aplicativo Music Chords mostrando uma lista de acordes e formulário de criação de acorde",
     category: "mobile",
     tools: ["Ionic", "Typescript"],
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     id: "gimme-pizza",
     title: "Gimme Pizza",
-    images: ["/images/portfolio03.png"],
+    images: ["/images/portfolio04.png"],
     altText: "Interface do sistema de Chamados mostrando uma lista de chamados e formulário de criação de chamado",
     category: "web",
     tools: ["Angular", "Firebase"],
@@ -95,7 +95,7 @@ export const participations: Project[] = [
   {
     id: "meelnutri",
     title: "MeelNutri",
-    images: ["/images/meelnutri01.jpg"],
+    images: ["/images/projects/meelnutri01.jpg"],
     altText: "Interface do aplicativo MeelNutri mostrando planos alimentares e acompanhamento nutricional",
     category: "mobile",
     tools: ["Ionic", "Typescript", "SASS", "Firebase"],
@@ -158,7 +158,7 @@ export const arts: Project[] = [
   {
     id: "lands",
     title: "Tipos de Terrenos",
-    images: ["/images/terrenos01.png", "/images/terrenos02.png", "/images/terrenos03.png", "/images/terrenos04.png", "/images/terrenos05.png"],
+    images: ["/images/projects/terrenos01.png", "/images/projects/terrenos02.png", "/images/projects/terrenos03.png", "/images/projects/terrenos04.png", "/images/projects/terrenos05.png"],
     altText: "Tipos de Terrenos",
     category: "design",
     tools: ["Animate", "Photoshop"],
@@ -170,7 +170,7 @@ export const arts: Project[] = [
   {
     id: "design-personagens",
     title: "Design de Personagens",
-    images: ["/images/design-personagens.png", "/images/personagens02.png", "/images/personagens03.png", "/images/personagens04.png", "/images/personagens05.png", "/images/personagens06.png", "/images/personagens07.png", "/images/personagens08.png"],
+    images: ["/images/projects/personagens01.png", "/images/projects/personagens02.png", "/images/projects/personagens03.png", "/images/projects/personagens04.png", "/images/projects/personagens05.png", "/images/projects/personagens06.png", "/images/projects/personagens07.png", "/images/projects/personagens08.png"],
     altText: "Design de Personagens",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
@@ -182,7 +182,7 @@ export const arts: Project[] = [
   {
     id: "catalogo",
     title: "Catálogo de Animais",
-    images: ["/images/animais01.png", "/images/animais02.png", "/images/animais03.png", "/images/animais04.png"],
+    images: ["/images/projects/animais01.png", "/images/projects/animais02.png", "/images/projects/animais03.png", "/images/projects/animais04.png"],
     altText: "Artes",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
@@ -194,7 +194,7 @@ export const arts: Project[] = [
   {
     id: "jogo-da-memoria",
     title: "Jogo da Memória - Frutas",
-    images: ["/images/jogo-memoria.png"],
+    images: ["/images/projects/jogo-memoria.png"],
     altText: "Jogo da Memória - Frutas",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
@@ -206,7 +206,7 @@ export const arts: Project[] = [
   {
     id: "vetorizacao",
     title: "Vetorização de Desenhos",
-    images: ["/images/vetorizacao01.png", "/images/vetorizacao02.png", "/images/vetorizacao03.png"],
+    images: ["/images/projects/vetorizacao01.png", "/images/projects/vetorizacao02.png", "/images/projects/vetorizacao03.png"],
     altText: "Artes",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
@@ -218,7 +218,7 @@ export const arts: Project[] = [
   {
     id: "desenvolveu-tech",
     title: "Redes Sociais - desenvolveuTECH",
-    images: ["/images/desenvolveu01.png", "/images/desenvolveu02.png", "/images/desenvolveu03.png"],
+    images: ["/images/projects/desenvolveu01.png", "/images/projects/desenvolveu02.png", "/images/projects/desenvolveu03.png"],
     altText: "Artes",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
@@ -230,7 +230,7 @@ export const arts: Project[] = [
   {
     id: "m-de-moveis",
     title: "Redes Sociais - M de Móveis",
-    images: ["/images/m-de-moveis01.png", "/images/m-de-moveis02.png", "/images/m-de-moveis03.png"],
+    images: ["/images/projects/m-de-moveis01.png", "/images/projects/m-de-moveis02.png", "/images/projects/m-de-moveis03.png"],
     altText: "Artes",
     category: "design",
     tools: ["Illustrator", "Photoshop"],
