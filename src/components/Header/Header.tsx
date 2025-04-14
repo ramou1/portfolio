@@ -97,9 +97,9 @@ const Header = () => {
             <Image
               src={currentLogo}
               alt="Logotipo do site escrito Ramon"
-              height={50}
-              width={90}
-              className="h-[60px] w-auto"
+              height={35}
+              width={91}
+              className="h-[35px] w-auto"
             />
           </Link>
         </div>
