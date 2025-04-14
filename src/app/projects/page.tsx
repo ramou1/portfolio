@@ -85,7 +85,7 @@ export default function Projects() {
       </h1>
 
       <div className="relative mb-10">
-        <Slider {...settings}>
+        <Slider {...settings} speed={600}>
           {participations.map((project) => {
             const firstMedia = project.images[0];
             const mediaType = getMediaType(firstMedia);
