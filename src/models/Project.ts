@@ -10,5 +10,5 @@ export interface Project {
     externalLink?: string | null;
     repoLink?: string | null; 
     ariaLabel: string;
-    featured: boolean;
+    showSlide: boolean;
   }

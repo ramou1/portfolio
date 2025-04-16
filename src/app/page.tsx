@@ -4,18 +4,18 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { projects } from "./data";
+import { projects, featuredProjects } from "./data";
 import Card from "../components/Card/Card";
 
 export default function RootPage() {
   const router = useRouter();
 
   const featuredSlides = projects.filter(
-    (project) => project.featured && project.slideImage
+    (project) => project.showSlide && project.slideImage
   );
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const featuredProjects = projects.slice(0, 6);
+  const featured = featuredProjects;
 
   const nextSlide = () => {
     setCurrentSlide((prev) =>
@@ -145,7 +145,7 @@ export default function RootPage() {
         className="w-full flex flex-col items-center"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 w-full">
-          {featuredProjects.map((project: any) => {
+          {featured.map((project: any) => {
             const firstMedia = project.images[0];
             const mediaType = getMediaType(firstMedia);
 

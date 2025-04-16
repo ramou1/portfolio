@@ -2,7 +2,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import { projects, participations, arts } from "@/app/data";
 import Card from "../../components/Card/Card";
 import "@/app/globals.css";

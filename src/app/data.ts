@@ -12,7 +12,7 @@ export const projects: Project[] = [
     description: "Site para o DJ Laud, apresentando informações sobre próximos eventos, vídeos de shows e redes sociais.",
     externalLink: "https://laud.live",
     ariaLabel: "Visitar o site da Laud Live",
-    featured: true,
+    showSlide: true,
   },
   {
     id: "terapeuta-bele",
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description: "Site profissional para a terapeuta Bele, com informações sobre serviços, blog e agendamento de consultas.",
     externalLink: "https://terapeutabele.com.br",
     ariaLabel: "Visitar o site da Terapeuta Bele",
-    featured: true,
+    showSlide: true,
   },
   {
     id:"rca",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     description: "Site para a empresa de contabilidade RCA Contabilidade, apresentando serviços, blog e informações de contato.",
     externalLink: "https://rcacontabilidade.com",
     ariaLabel: "Visitar o site da RCA",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "miraggio-villa-branca",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     description: "Landing page para o empreendimento Miraggio Villa Branca da construtora Marcondes Cesar na cidade de Jacareí, apresentando formulário de contato, informações relevantes sobre a localização e infraestrutura.",
     externalLink: "https://miraggio.marcondescesar.com.br",
     ariaLabel: "Visitar o landing do Miraggio",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "hostelzim",
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     externalLink: null,
     repoLink: "https://github.com/ramou1/hostel-system",
     ariaLabel: "Ver detalhes do sistema Fatura Online",
-    featured: true,
+    showSlide: true,
   },
   {
     id: "music-chords",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     externalLink: null,
     repoLink: "https://github.com/ramou1/music-chords-app",
     ariaLabel: "Ver detalhes do Music Chords",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "gimme-pizza",
@@ -87,11 +87,23 @@ export const projects: Project[] = [
     description: "Sistema para gerenciar pedidos de pizza.",
     repoLink: "https://github.com/ramou1/gimme-pizza",
     ariaLabel: "Ver detalhes do sistema",
-    featured: false,
+    showSlide: false,
   }
 ];
 
 export const participations: Project[] = [
+  {
+    id: "fica-na-regua",
+    title: "Fica na Régua",
+    images: ["/images/projects/fica-na-regua01.mp4"],
+    altText: "Interface do projeto Fica na Régua mostrando um campo de busca e uma lista de barbearias mais próximas.",
+    category: "web",
+    tools: ["React", "NextJS", "Tailwind", "Typescript"],
+    description: "Sistema de busca de barbearias e agendamento de horários, desenvolvido em equipe de três pessoas. Todo o frontend foi desenvolvido por mim, utilizando React v19.0.0, NextJS v15.2.1, Tailwind v4 e Typescript. O sistema permite que o usuário busque barbearias próximas a sua localização e agende horários.",
+    externalLink: "https://ficanaregua.vercel.app",
+    ariaLabel: "Ver detalhes do Fica na Régua",
+    showSlide: false,
+  },
   {
     id: "meelnutri",
     title: "MeelNutri",
@@ -102,7 +114,7 @@ export const participations: Project[] = [
     description: "Aplicativo para acompanhamento nutricional, criação de planos alimentares e monitoramento de refeições.",
     externalLink: "https://play.google.com/store/apps/details?id=br.com.meelnutri",
     ariaLabel: "Ver detalhes do MeelNutri",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "funcorsan",
@@ -114,7 +126,7 @@ export const participations: Project[] = [
     description: "Aplicativo para associados da Funcorsan, oferecendo acesso a serviços, documentos e informações.",
     externalLink: "https://play.google.com/store/apps/details?id=br.com.funcorsan",
     ariaLabel: "Ver detalhes do Funcorsan",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "laudelina2",
@@ -126,7 +138,7 @@ export const participations: Project[] = [
     description: "Aplicativo voltado para trabalhadoras domésticas, oferecendo informações sobre direitos, cálculos de salários e rescisões, benefícios, pesquisa de órgãos e sindicatos da cidade e conexão com outras empregadas domésticas nas proximidades.",
     externalLink: "https://play.google.com/store/apps/details?id=br.org.laudelina",
     ariaLabel: "Ver detalhes do Laudelina",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "purificatta2",
@@ -138,7 +150,7 @@ export const participations: Project[] = [
     description: "Aplicativo para clientes da Purificatta, permitindo gerenciamento de planos e acompanhamento de serviços.",
     externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.app",
     ariaLabel: "Ver detalhes do Purificatta",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "purificatta-adesao2",
@@ -150,7 +162,7 @@ export const participations: Project[] = [
     description: "Aplicativo para adesão e gerenciamento de planos da Purificatta, facilitando a assinatura e suporte.",
     externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.adesao",
     ariaLabel: "Ver detalhes do Purificatta Adesão",
-    featured: false,
+    showSlide: false,
   }
 ];
 
@@ -165,7 +177,7 @@ export const arts: Project[] = [
     description: "Estudo sobre diferentes terrenos para jogos criados no Adobe Animate e Adobe Photoshop, para o curso de Programação de Jogos Digitais.",
     externalLink: "https://www.behance.net/gallery/61701671/TerrenosLands",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "design-personagens",
@@ -177,7 +189,7 @@ export const arts: Project[] = [
     description: "Desenhos vetorizados de monstrinhos infantis utilizados no meu trabalho de graduação do curso de Programação de Jogos Digitais.",
     externalLink: "https://www.behance.net/gallery/47743513/Design-de-Personagens",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "catalogo",
@@ -189,7 +201,7 @@ export const arts: Project[] = [
     description: "Coleção de ilustrações de animais acompanhadas por lettering artístico.",
     externalLink: "https://www.behance.net/gallery/121457211/animals-catalogue",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "jogo-da-memoria",
@@ -201,7 +213,7 @@ export const arts: Project[] = [
     description: "Ícones de frutas criados no Photoshop e Illustrator para um jogo da memória infantil desenvolvido no curso de Programação de Jogos Digitais, em 2013.",
     externalLink: "https://www.behance.net/gallery/50276623/Jogo-da-Memoria-Frutas",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "vetorizacao",
@@ -213,7 +225,7 @@ export const arts: Project[] = [
     description: "Desenhos vetorizados de personagens feitos a partir de desenhos à mão de alguns amigos e também alguns desenhos meus.",
     externalLink: "https://www.behance.net/gallery/98439717/Vetorizacao-de-Desenhos",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "desenvolveu-tech",
@@ -225,7 +237,7 @@ export const arts: Project[] = [
     description: "Artes desenvolvidas para as redes sociais da empresa desenvolveuTECH.",
     externalLink: "https://www.behance.net/gallery/101824099/Artes-Redes-Sociais-desenvolveu-TECH",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   },
   {
     id: "m-de-moveis",
@@ -237,6 +249,15 @@ export const arts: Project[] = [
     description: "Artes desenvolvidas para as redes sociais da empresa M de Móveis.",
     externalLink: "https://www.behance.net/gallery/101826925/Artes-Redes-Sociais-M-de-Moveis",
     ariaLabel: "Ver detalhes",
-    featured: false,
+    showSlide: false,
   }
 ];  
+
+export const featuredProjects: Project[] = [
+  projects[0],
+  projects[1],
+  participations[0],
+  participations[1],
+  projects[2],
+  projects[3],
+];
