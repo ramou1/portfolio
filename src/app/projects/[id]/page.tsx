@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { notFound, useRouter } from "next/navigation";
 import Image from "next/image";
 import { projects, participations, arts } from "@/app/data";
@@ -8,12 +8,18 @@ import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { Project } from "@/models/Project";
 
+// Importação básica do Lightbox
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
 interface ProjectDetailProps {
   params: Promise<{ id: string }>;
 }
 
 export default function ProjectDetail({ params }: ProjectDetailProps) {
   const router = useRouter();
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const resolvedParams = React.use(params);
   const projectId = resolvedParams.id;
@@ -31,6 +37,40 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
 
   const isVideo = (url: string): boolean => {
     return url.endsWith(".mp4");
+  };
+
+  // Preparar apenas as imagens para o Lightbox (sem vídeos)
+  const imageUrls = project.images.filter(url => !isVideo(url));
+  
+  // Adicionar o slide de projeto se for uma imagem
+  if (project.slideImage && !isVideo(project.slideImage)) {
+    imageUrls.push(project.slideImage);
+  }
+
+  // Converter para o formato de slides que o Lightbox aceita
+  const lightboxSlides = imageUrls.map(url => ({
+    src: url,
+    alt: `Imagem do projeto ${project.title}`
+  }));
+
+  const openLightbox = (index: number) => {
+    // Precisamos mapear o índice da interface para o índice real no array de slides
+    // já que filtramos os vídeos
+    const imageOnlyIndex = project.images
+      .slice(0, index)
+      .filter(url => !isVideo(url))
+      .length;
+    
+    setLightboxIndex(imageOnlyIndex);
+    setLightboxOpen(true);
+  };
+
+  const openSlideImage = () => {
+    if (project.slideImage && !isVideo(project.slideImage)) {
+      // O índice do slide de apresentação é o último no array
+      setLightboxIndex(lightboxSlides.length - 1);
+      setLightboxOpen(true);
+    }
   };
 
   return (
@@ -103,7 +143,10 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
         <div className="lg:w-3/5">
           <div className="space-y-4">
             {project.images.map((mediaUrl, index) => (
-              <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+              <div 
+                key={index} 
+                className="rounded-lg overflow-hidden shadow-lg"
+              >
                 {isVideo(mediaUrl) ? (
                   <video
                     src={mediaUrl}
@@ -115,13 +158,18 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                     className="w-full h-auto"
                   />
                 ) : (
-                  <Image
-                    src={mediaUrl}
-                    alt={`Imagem ${index + 1} do projeto ${project.title}`}
-                    width={800}
-                    height={500}
-                    className="w-full h-auto"
-                  />
+                  <div 
+                    className="cursor-pointer" 
+                    onClick={() => openLightbox(index)}
+                  >
+                    <Image
+                      src={mediaUrl}
+                      alt={`Imagem ${index + 1} do projeto ${project.title}`}
+                      width={800}
+                      height={500}
+                      className="w-full h-auto transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
                 )}
               </div>
             ))}
@@ -140,18 +188,36 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                   className="w-full h-auto"
                 />
               ) : (
-                <Image
-                  src={project.slideImage}
-                  alt={`Slide do projeto ${project.title}`}
-                  width={800}
-                  height={500}
-                  className="w-full h-auto"
-                />
+                <div 
+                  className="cursor-pointer" 
+                  onClick={openSlideImage}
+                >
+                  <Image
+                    src={project.slideImage}
+                    alt={`Slide do projeto ${project.title}`}
+                    width={800}
+                    height={500}
+                    className="w-full h-auto transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
               )}
             </div>
           )}
         </div>
       </div>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={lightboxSlides}
+        styles={{ 
+          container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
+          toolbar: { backgroundColor: "rgba(0, 0, 0, 0.4)" }
+        }}
+        animation={{ fade: 300 }}
+        carousel={{ padding: "16px", spacing: "16px" }}
+      />
     </div>
   );
 }
