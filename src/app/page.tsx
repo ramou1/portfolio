@@ -6,9 +6,11 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { projects, featuredProjects } from "./data";
 import Card from "../components/Card/Card";
+import { useLoading } from "../components/Loader/LoadingProvider";
 
 export default function RootPage() {
   const router = useRouter();
+  const { setLoading } = useLoading();
 
   const featuredSlides = projects.filter(
     (project) => project.showSlide && project.slideImage
@@ -30,6 +32,7 @@ export default function RootPage() {
 
   // Função para navegar para a página de detalhes do projeto
   const navigateToProject = (id: any) => {
+    setLoading(true); // Ativa o loader antes da navegação
     router.push(`/projects/${id}`);
   };
 
@@ -173,6 +176,7 @@ export default function RootPage() {
             <Link
               href="/projects"
               className="mt-8 px-6 py-2 bg-transparent text-[var(--button-text-color)] border-2 border-[var(--button-text-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--button-text-color)] hover:text-[var(--hover-color)]"
+              onClick={() => setLoading(true)}
             >
               ver todos os projetos
             </Link>

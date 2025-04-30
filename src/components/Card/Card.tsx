@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useLoading } from "../../components/Loader";
 
 interface CardProps {
   media: string;
@@ -32,10 +35,20 @@ const Card = ({
   onClick,
   mediaType = "image",
 }: CardProps) => {
+  // Utilizando o hook de loading
+  const { setLoading } = useLoading();
+
+  const handleClick = () => {
+    // Ativar o loader antes de navegar
+    setLoading(true);
+    // Chamar a função onClick original (que provavelmente faz a navegação)
+    onClick();
+  };
+
   return (
     <div
       className="overflow-hidden cursor-pointer transition-transform hover:scale-105"
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div className="relative w-full" style={{ height: `${height}px` }}>
         {mediaType === "image" ? (
@@ -65,7 +78,7 @@ const Card = ({
         >
           {category}
         </span>
-
+        
         <h3 className="text-3xl font-semibold">{title}</h3>
       </div>
     </div>
