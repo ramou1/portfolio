@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -8,7 +8,7 @@ import { projects, featuredProjects } from "./data";
 import Card from "../components/Card/Card";
 import { useLoading } from "../components/Loader/LoadingProvider";
 
-export default function RootPage() {
+function HomeContent() {
   const router = useRouter();
   const { setLoading } = useLoading();
 
@@ -103,7 +103,7 @@ export default function RootPage() {
               ) : (
                 <img
                   src={project.slideImage}
-                  alt={project.altText}
+                  alt={project.altText || project.title}
                   className="w-full h-full object-cover"
                 />
               )}
@@ -184,5 +184,13 @@ export default function RootPage() {
         </div>
       </motion.section>
     </>
+  );
+}
+
+export default function RootPage() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

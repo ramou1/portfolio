@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Loader from "./Loader";
 
 interface LoadingContextType {
@@ -19,21 +19,20 @@ export const useLoading = () => useContext(LoadingContext);
 export const LoadingProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setLoading] = useState(false);
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   // Reset loading state on route change
   useEffect(() => {
-    const handleRouteChangeComplete = () => {
-      // Add a small delay to make the loader visible for at least a moment
-      // This improves UX by providing consistent feedback even for fast loads
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
+    // Add a small delay to make the loader visible for at least a moment
+    // This improves UX by providing consistent feedback even for fast loads
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    
+    // Cleanup on unmount
+    return () => {
+      // Optional cleanup if needed
     };
-
-    // Only run this effect when the component mounts or when the route changes
-    handleRouteChangeComplete();
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return (
     <LoadingContext.Provider value={{ isLoading, setLoading }}>
