@@ -10,7 +10,7 @@ import { Project } from "@/models/Project";
 
 // Importação básica do Lightbox
 import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+//import "yet-another-react-lightbox/styles.css";
 
 interface ProjectDetailProps {
   params: Promise<{ id: string }>;
