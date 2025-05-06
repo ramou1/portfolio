@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description: "Site profissional para a terapeuta Bele, com informações sobre serviços, blog e agendamento de consultas.",
     externalLink: "https://terapeutabele.com.br",
     ariaLabel: "Visitar o site da Terapeuta Bele",
-    showSlide: true,
+    showSlide: false,
   },
   {
     id:"rca",
@@ -97,12 +97,13 @@ export const participations: Project[] = [
     title: "Fica na Régua",
     images: ["/images/projects/fica-na-regua01.mp4"],
     altText: "Interface do projeto Fica na Régua mostrando um campo de busca e uma lista de barbearias mais próximas.",
+    slideImage: "/images/projecs/slider-ficanaregua.png",
     category: "web",
     tools: ["React", "NextJS", "Tailwind", "Typescript"],
     description: "Sistema de busca de barbearias e agendamento de horários, desenvolvido em equipe de três pessoas. Todo o frontend foi desenvolvido por mim, utilizando React v19.0.0, NextJS v15.2.1, Tailwind v4 e Typescript. O sistema permite que o usuário busque barbearias próximas a sua localização e agende horários.",
     externalLink: "https://ficanaregua.vercel.app",
     ariaLabel: "Ver detalhes do Fica na Régua",
-    showSlide: false,
+    showSlide: true,
   },
   {
     id: "meelnutri",
