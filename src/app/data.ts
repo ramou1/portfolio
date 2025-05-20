@@ -2,6 +2,19 @@ import { Project } from "@/models/Project";
 
 export const projects: Project[] = [
   {
+    id: "nutribot",
+    title: "NutriBot",
+    images: ["/images/projects/nutribot01.mov", "/images/projects/nutribot02.png", "/images/projects/nutribot03.png", "/images/projects/nutribot04.png"],
+    altText: "Interface do NutriBot mostrando os assistentes NutriBot e ChefBot para recomendações nutricionais e de restaurantes",
+    category: "web",
+    tools: ["Next.js", "OpenAI", "TypeScript", "Tailwind CSS"],
+    description: "NutriBot é uma plataforma que oferece dois assistentes inteligentes (NutriBot e ChefBot), desenvolvida durante o hackathon da empresa Brendi. O NutriBot auxilia clientes a encontrarem opções alimentares adequadas às suas necessidades específicas, enquanto o ChefBot ajuda usuários a encontrarem restaurantes e pratos que atendam às suas necessidades alimentares.",
+    externalLink: "https://nutribot0.vercel.app",
+    repoLink: "https://github.com/ramou1/nutribot",
+    ariaLabel: "Visitar o site do NutriBot",
+    showSlide: false,
+  },
+  {
     id: "dj-laud",
     title: "DJ Laud",
     images: ["/images/projects/laud01.mp4"],
@@ -25,7 +38,7 @@ export const projects: Project[] = [
     description: "Site profissional para a terapeuta Bele, com informações sobre serviços, blog e agendamento de consultas.",
     externalLink: "https://terapeutabele.com.br",
     ariaLabel: "Visitar o site da Terapeuta Bele",
-    showSlide: false,
+    showSlide: true,
   },
   {
     id:"rca",
@@ -88,6 +101,30 @@ export const projects: Project[] = [
     repoLink: "https://github.com/ramou1/gimme-pizza",
     ariaLabel: "Ver detalhes do sistema",
     showSlide: false,
+  },
+  {
+    id: "purificatta2",
+    title: "Purificatta",
+    images: ["/images/portfolio07.png"],
+    altText: "Interface do aplicativo Purificatta exibindo gerenciamento de assinaturas de purificadores de água",
+    category: "mobile",
+    tools: ["Ionic", "Typescript", "SASS", "Firebase"],
+    description: "Aplicativo para clientes da Purificatta, permitindo gerenciamento de planos e acompanhamento de serviços.",
+    externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.app",
+    ariaLabel: "Ver detalhes do Purificatta",
+    showSlide: false,
+  },
+  {
+    id: "purificatta-adesao2",
+    title: "Purificatta Adesão",
+    images: ["/images/portfolio08.png"],
+    altText: "Interface do aplicativo Purificatta Adesão exibindo opções de assinatura para purificadores de água",
+    category: "mobile",
+    tools: ["Ionic", "Typescript", "SASS", "Firebase"],
+    description: "Aplicativo para adesão e gerenciamento de planos da Purificatta, facilitando a assinatura e suporte.",
+    externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.adesao",
+    ariaLabel: "Ver detalhes do Purificatta Adesão",
+    showSlide: false,
   }
 ];
 
@@ -139,18 +176,6 @@ export const participations: Project[] = [
     description: "Aplicativo voltado para trabalhadoras domésticas, oferecendo informações sobre direitos, cálculos de salários e rescisões, benefícios, pesquisa de órgãos e sindicatos da cidade e conexão com outras empregadas domésticas nas proximidades.",
     externalLink: "https://play.google.com/store/apps/details?id=br.org.laudelina",
     ariaLabel: "Ver detalhes do Laudelina",
-    showSlide: false,
-  },
-  {
-    id: "purificatta2",
-    title: "Purificatta",
-    images: ["/images/portfolio07.png"],
-    altText: "Interface do aplicativo Purificatta exibindo gerenciamento de assinaturas de purificadores de água",
-    category: "mobile",
-    tools: ["Ionic", "Typescript", "SASS", "Firebase"],
-    description: "Aplicativo para clientes da Purificatta, permitindo gerenciamento de planos e acompanhamento de serviços.",
-    externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.app",
-    ariaLabel: "Ver detalhes do Purificatta",
     showSlide: false,
   },
   {
@@ -257,8 +282,8 @@ export const arts: Project[] = [
 export const featuredProjects: Project[] = [
   projects[0],
   projects[1],
+  projects[2],
   participations[0],
   participations[1],
-  projects[2],
   projects[3],
 ];

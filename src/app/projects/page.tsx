@@ -49,7 +49,7 @@ export default function Projects() {
 
   // Helper function to determine if a file is a video
   const getMediaType = (url: string) => {
-    return url.endsWith('.mp4') ? "video" : "image";
+    return url.endsWith('.mp4') || url.endsWith('.mov') ? "video" : "image";
   };
 
   const navigateToProject = (id: any) => {

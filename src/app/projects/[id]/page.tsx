@@ -36,7 +36,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
   }
 
   const isVideo = (url: string): boolean => {
-    return url.endsWith(".mp4");
+    return url.endsWith(".mp4") || url.endsWith(".mov");
   };
 
   // Preparar apenas as imagens para o Lightbox (sem vídeos)

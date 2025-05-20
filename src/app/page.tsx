@@ -38,7 +38,7 @@ function HomeContent() {
 
   // Helper function to determine media type
   const getMediaType = (url: string) => {
-    return url.endsWith(".mp4") ? "video" : "image";
+    return url.endsWith(".mp4") || url.endsWith(".mov") ? "video" : "image";
   };
 
   // Animation variants
