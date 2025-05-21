@@ -31,6 +31,11 @@ export default function Projects() {
     pauseOnHover: true,
     dots: true,
     arrows: false,
+    customPaging: function() {
+      return (
+        <div className="w-3 h-3 mt-4 mx-2 bg-gray-400 rounded-full hover:bg-gray-600 transition-colors cursor-pointer" />
+      );
+    },
     responsive: [
       {
         breakpoint: 1200,
