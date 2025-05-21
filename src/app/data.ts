@@ -177,18 +177,6 @@ export const participations: Project[] = [
     externalLink: "https://play.google.com/store/apps/details?id=br.org.laudelina",
     ariaLabel: "Ver detalhes do Laudelina",
     showSlide: false,
-  },
-  {
-    id: "purificatta-adesao2",
-    title: "Purificatta Adesão",
-    images: ["/images/portfolio08.png"],
-    altText: "Interface do aplicativo Purificatta Adesão exibindo opções de assinatura para purificadores de água",
-    category: "mobile",
-    tools: ["Ionic", "Typescript", "SASS", "Firebase"],
-    description: "Aplicativo para adesão e gerenciamento de planos da Purificatta, facilitando a assinatura e suporte.",
-    externalLink: "https://play.google.com/store/apps/details?id=br.com.purificatta.adesao",
-    ariaLabel: "Ver detalhes do Purificatta Adesão",
-    showSlide: false,
   }
 ];
 

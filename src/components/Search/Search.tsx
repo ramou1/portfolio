@@ -16,13 +16,14 @@ export default function Search({ className = "", allProjects, onSearch }: Search
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const RESULTS_PER_PAGE = 8;
+  const MIN_SEARCH_LENGTH = 3;
 
   // Memoize the onSearch callback
   const memoizedOnSearch = useCallback(onSearch, []);
 
   // Função para filtrar projetos
   const filterProjects = (term: string): Project[] => {
-    if (!term.trim()) return [];
+    if (!term.trim() || term.length < MIN_SEARCH_LENGTH) return [];
     
     const normalizedTerm = term.toLowerCase().trim();
     
@@ -39,7 +40,7 @@ export default function Search({ className = "", allProjects, onSearch }: Search
 
   // Atualiza resultados quando o termo de pesquisa ou página mudar
   useEffect(() => {
-    if (searchTerm) {
+    if (searchTerm && searchTerm.length >= MIN_SEARCH_LENGTH) {
       const allResults = filterProjects(searchTerm);
       const startIndex = (currentPage - 1) * RESULTS_PER_PAGE;
       const paginatedResults = allResults.slice(startIndex, startIndex + RESULTS_PER_PAGE);
@@ -51,7 +52,7 @@ export default function Search({ className = "", allProjects, onSearch }: Search
 
   // Resetar página quando o termo de pesquisa mudar
   useEffect(() => {
-    if (searchTerm) {
+    if (searchTerm && searchTerm.length >= MIN_SEARCH_LENGTH) {
       setCurrentPage(1);
     }
   }, [searchTerm]);
@@ -100,7 +101,7 @@ export default function Search({ className = "", allProjects, onSearch }: Search
     setCurrentPage(newPage);
   };
 
-  const totalResults = searchTerm ? filterProjects(searchTerm).length : 0;
+  const totalResults = searchTerm && searchTerm.length >= MIN_SEARCH_LENGTH ? filterProjects(searchTerm).length : 0;
   const totalPages = Math.ceil(totalResults / RESULTS_PER_PAGE);
 
   return (
@@ -125,7 +126,7 @@ export default function Search({ className = "", allProjects, onSearch }: Search
                 placeholder="Pesquisar por projetos, ferramentas ou descrição..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-grow border-none focus:outline-none text-base"
+                className="flex-grow border-none focus:outline-none text-sm"
                 autoComplete="off"
               />
               {searchTerm && (
@@ -138,7 +139,7 @@ export default function Search({ className = "", allProjects, onSearch }: Search
                 </button>
               )}
             </div>
-            {searchTerm && totalResults > 0 && (
+            {searchTerm && searchTerm.length >= MIN_SEARCH_LENGTH && totalResults > 0 && (
               <div className="mt-2 text-center text-sm text-gray-600">
                 mostrando {((currentPage - 1) * RESULTS_PER_PAGE) + 1} - {Math.min(currentPage * RESULTS_PER_PAGE, totalResults)} de {totalResults} resultados
               </div>

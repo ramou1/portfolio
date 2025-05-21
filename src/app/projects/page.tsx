@@ -81,7 +81,7 @@ export default function Projects() {
       {searchResults ? (
         // Exibir resultados da pesquisa
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 project-result">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 project-result">
             {searchResults.map((project) => {
               const firstMedia = project.images[0];
               const mediaType = getMediaType(firstMedia);
