@@ -50,7 +50,7 @@ const Card = ({
       className="overflow-hidden cursor-pointer transition-transform hover:scale-105"
       onClick={handleClick}
     >
-      <div className="relative w-full" style={{ height: `${height}px` }}>
+      <div className="relative w-full" style={{ height: `clamp(200px, 30vw, ${height}px)` }}>
         {mediaType === "image" ? (
           <Image
             src={media}
@@ -71,15 +71,15 @@ const Card = ({
           />
         )}
       </div>
-      <div className="pt-2 pb-4">
+      <div className="pt-2 pb-2">
         <span
-          className="inline-flex items-center rounded-xl text-white px-3 py-1 mb-2 text-xs uppercase"
+          className="inline-flex items-center rounded-xl text-white px-2 py-0.5 mb-1 text-xs uppercase"
           style={{ backgroundColor: getCategoryColor(category) }}
         >
           {category}
         </span>
         
-        <h3 className="text-3xl font-semibold">{title}</h3>
+        <h3 className="text-2xl md:text-3xl font-semibold">{title}</h3>
       </div>
     </div>
   );

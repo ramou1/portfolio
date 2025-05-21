@@ -147,7 +147,7 @@ function HomeContent() {
         variants={containerVariants}
         className="w-full flex flex-col items-center"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 mt-6 w-full">
           {featured.map((project: any) => {
             const firstMedia = project.images[0];
             const mediaType = getMediaType(firstMedia);
