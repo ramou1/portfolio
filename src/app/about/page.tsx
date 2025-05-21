@@ -19,6 +19,8 @@ import {
   SiAdobephotoshop,
   SiAdobeillustrator,
   SiAdobexd,
+  SiFlutter,
+  SiReact,
 } from "react-icons/si";
 
 export default function About() {
@@ -45,6 +47,8 @@ export default function About() {
     { Icon: SiIonic, name: "Ionic" },
     { Icon: SiFirebase, name: "Firebase" },
     { Icon: FaReact, name: "React" },
+    { Icon: SiFlutter, name: "Flutter" },
+    { Icon: SiReact, name: "React Native" },
     { Icon: SiAdobephotoshop, name: "Photoshop" },
     { Icon: SiAdobeillustrator, name: "Illustrator" },
     { Icon: SiAdobexd, name: "Adobe XD" },
