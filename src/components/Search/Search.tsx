@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { FiSearch, FiX } from "react-icons/fi";
+import { FiSearch, FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Project } from "@/models/Project";
 
 interface SearchProps {
@@ -12,8 +12,10 @@ interface SearchProps {
 export default function Search({ className = "", allProjects, onSearch }: SearchProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const RESULTS_PER_PAGE = 8;
 
   // Função para filtrar projetos
   const filterProjects = (term: string): Project[] => {
@@ -35,12 +37,20 @@ export default function Search({ className = "", allProjects, onSearch }: Search
   // Atualiza resultados quando o termo de pesquisa muda
   useEffect(() => {
     if (searchTerm) {
-      const results = filterProjects(searchTerm);
-      onSearch(results);
+      const allResults = filterProjects(searchTerm);
+      const startIndex = (currentPage - 1) * RESULTS_PER_PAGE;
+      const paginatedResults = allResults.slice(startIndex, startIndex + RESULTS_PER_PAGE);
+      onSearch(paginatedResults);
     } else {
-      onSearch(null); // Volta para a visualização normal
+      onSearch(null);
+      setCurrentPage(1);
     }
-  }, [searchTerm, onSearch]);
+  }, [searchTerm, currentPage, onSearch]);
+
+  // Resetar página quando o termo de pesquisa mudar
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   // Manipular clique fora do componente de pesquisa
   useEffect(() => {
@@ -71,14 +81,23 @@ export default function Search({ className = "", allProjects, onSearch }: Search
     if (!isOpen) {
       setSearchTerm("");
       onSearch(null);
+      setCurrentPage(1);
     }
   };
 
   const clearSearch = () => {
     setSearchTerm("");
     onSearch(null);
+    setCurrentPage(1);
     inputRef.current?.focus();
   };
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
+  const totalResults = searchTerm ? filterProjects(searchTerm).length : 0;
+  const totalPages = Math.ceil(totalResults / RESULTS_PER_PAGE);
 
   return (
     <div ref={searchRef} className={`relative ${className}`}>
@@ -115,6 +134,34 @@ export default function Search({ className = "", allProjects, onSearch }: Search
                 </button>
               )}
             </div>
+            {searchTerm && totalResults > 0 && (
+              <div className="mt-2 text-center text-sm text-gray-600">
+                mostrando {((currentPage - 1) * RESULTS_PER_PAGE) + 1} - {Math.min(currentPage * RESULTS_PER_PAGE, totalResults)} de {totalResults} resultados
+              </div>
+            )}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center mt-2 space-x-2">
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className={`p-1 rounded-full ${currentPage === 1 ? 'text-gray-400' : 'text-[var(--accent-color)] hover:bg-white/80'}`}
+                  aria-label="Página anterior"
+                >
+                  <FiChevronLeft size={20} />
+                </button>
+                <span className="text-sm text-gray-600">
+                  Página {currentPage} de {totalPages}
+                </span>
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className={`p-1 rounded-full ${currentPage === totalPages ? 'text-gray-400' : 'text-[var(--accent-color)] hover:bg-white/80'}`}
+                  aria-label="Próxima página"
+                >
+                  <FiChevronRight size={20} />
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

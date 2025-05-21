@@ -81,14 +81,6 @@ export default function Projects() {
       {searchResults ? (
         // Exibir resultados da pesquisa
         <div className="container mx-auto px-4">
-          <div className="mb-6 text-center">
-            <p className="text-gray-600">
-              {searchResults.length === 0 
-                ? "Nenhum projeto encontrado." 
-                : `${searchResults.length} projeto${searchResults.length !== 1 ? 's' : ''} encontrado${searchResults.length !== 1 ? 's' : ''}.`}
-            </p>
-          </div>
-          
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 project-result">
             {searchResults.map((project) => {
               const firstMedia = project.images[0];
