@@ -1,0 +1,45 @@
+.marqueeContainer {
+  height: 15px;
+  width: 100%;
+  background-image: url('/images/banner.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.marqueeContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.marqueeContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marqueeText {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+} 
