@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FiSearch, FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Project } from "@/models/Project";
 
@@ -16,6 +16,9 @@ export default function Search({ className = "", allProjects, onSearch }: Search
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const RESULTS_PER_PAGE = 8;
+
+  // Memoize the onSearch callback
+  const memoizedOnSearch = useCallback(onSearch, []);
 
   // Função para filtrar projetos
   const filterProjects = (term: string): Project[] => {
@@ -34,22 +37,23 @@ export default function Search({ className = "", allProjects, onSearch }: Search
     });
   };
 
-  // Atualiza resultados quando o termo de pesquisa muda
+  // Atualiza resultados quando o termo de pesquisa ou página mudar
   useEffect(() => {
     if (searchTerm) {
       const allResults = filterProjects(searchTerm);
       const startIndex = (currentPage - 1) * RESULTS_PER_PAGE;
       const paginatedResults = allResults.slice(startIndex, startIndex + RESULTS_PER_PAGE);
-      onSearch(paginatedResults);
+      memoizedOnSearch(paginatedResults);
     } else {
-      onSearch(null);
-      setCurrentPage(1);
+      memoizedOnSearch(null);
     }
-  }, [searchTerm, currentPage, onSearch]);
+  }, [searchTerm, currentPage, memoizedOnSearch]);
 
   // Resetar página quando o termo de pesquisa mudar
   useEffect(() => {
-    setCurrentPage(1);
+    if (searchTerm) {
+      setCurrentPage(1);
+    }
   }, [searchTerm]);
 
   // Manipular clique fora do componente de pesquisa
@@ -80,14 +84,14 @@ export default function Search({ className = "", allProjects, onSearch }: Search
     setIsOpen(!isOpen);
     if (!isOpen) {
       setSearchTerm("");
-      onSearch(null);
+      memoizedOnSearch(null);
       setCurrentPage(1);
     }
   };
 
   const clearSearch = () => {
     setSearchTerm("");
-    onSearch(null);
+    memoizedOnSearch(null);
     setCurrentPage(1);
     inputRef.current?.focus();
   };
