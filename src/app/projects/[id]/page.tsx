@@ -10,7 +10,7 @@ import { Project } from "@/models/Project";
 
 // Importação básica do Lightbox
 import Lightbox from "yet-another-react-lightbox";
-//import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/styles.css";
 
 interface ProjectDetailProps {
   params: Promise<{ id: string }>;
@@ -112,7 +112,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                   project.repoLink &&
                   window.open(project.repoLink, "_blank", "noopener,noreferrer")
                 }
-                className="cursor-pointer flex items-center mt-12 px-6 py-2 bg-transparent text-[var(--teal-color)] border-2 border-[var(--teal-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--teal-color)] hover:text-[var(--hover-color)]"
+                className="cursor-pointer flex items-center mt-6 px-6 py-2 bg-transparent text-[var(--teal-color)] border-2 border-[var(--teal-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--teal-color)] hover:text-[var(--hover-color)]"
                 aria-label={project.ariaLabel}
               >
                 acessar repositório
@@ -130,7 +130,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                     "noopener,noreferrer"
                   )
                 }
-                className="cursor-pointer flex items-center mt-12 px-6 py-2 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
+                className="cursor-pointer flex items-center mt-6 px-6 py-2 bg-transparent text-[var(--border-color)] border-2 border-[var(--border-color)] rounded-full text-xl md:text-base font-semibold transition-all duration-300 hover:bg-[var(--border-color)] hover:text-[var(--hover-color)]"
                 aria-label={project.ariaLabel}
               >
                 visitar projeto
@@ -167,7 +167,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                       alt={`Imagem ${index + 1} do projeto ${project.title}`}
                       width={800}
                       height={500}
-                      className="w-full h-auto transition-transform duration-300 hover:scale-105"
+                      className="w-full h-auto max-h-[600px] object-contain transition-transform duration-300 hover:scale-105"
                     />
                   </div>
                 )}
@@ -197,7 +197,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                     alt={`Slide do projeto ${project.title}`}
                     width={800}
                     height={500}
-                    className="w-full h-auto transition-transform duration-300 hover:scale-105"
+                    className="w-full h-auto max-h-[600px] object-contain transition-transform duration-300 hover:scale-105"
                   />
                 </div>
               )}
