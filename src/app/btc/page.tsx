@@ -62,6 +62,15 @@ export default function BTCPage() {
     }
   };
 
+  // Função para calcular quantas semanas o mês tem
+  const getWeeksInMonth = (year: number, month: number) => {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const firstWeek = firstDay.getDay();
+    const lastDate = lastDay.getDate();
+    return Math.ceil((firstWeek + lastDate) / 7);
+  };
+
   // Agrupar compras por mês
   const groupedByMonth = purchases.reduce((acc, purchase) => {
     const date = purchase.date.toDate();
@@ -99,7 +108,8 @@ export default function BTCPage() {
       <div className="space-y-4">
         {Object.keys(groupedByMonth).map((month) => {
           const monthPurchases = groupedByMonth[month];
-          const totalWeeks = 5; // Simplesmente fixado em 5
+          const sampleDate = monthPurchases[0].date.toDate();
+          const totalWeeks = getWeeksInMonth(sampleDate.getFullYear(), sampleDate.getMonth());
           const boughtWeeks = monthPurchases.length;
           const totalInvested = monthPurchases.reduce((sum, p) => sum + p.amountBRL, 0);
 
