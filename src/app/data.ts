@@ -2,6 +2,32 @@ import { Project } from "@/models/Project";
 
 export const projects: Project[] = [
   {
+    id: "commish",
+    title: "Commish",
+    images: [""],
+    altText: "Interface do Commish",
+    category: "web",
+    tools: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "Shadcn"],
+    description: "Commish é uma plataforma de gestão de comissões.",
+    externalLink: "https://commish-project.vercel.app",
+    repoLink: "https://github.com/ramou1/commish",
+    ariaLabel: "Visitar a plataforma do Commish",
+    showSlide: false,
+  },
+  {
+    id: "impar",
+    title: "Impar Climatização e Sistemas Ltda",
+    images: [""],
+    altText: "Site da empresa Impar Climatização e Sistemas Ltda",
+    category: "web",
+    tools: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "Shadcn"],
+    description: "Site da empresa Impar Climatização e Sistemas Ltda, que faz instalações de ar condicionado central e ventilação.",
+    externalLink: "https://impar-site.vercel.app",
+    repoLink: "https://github.com/ramou1/impar-site",
+    ariaLabel: "Visitar o site da Impar",
+    showSlide: false,
+  },
+  {
     id: "nutribot",
     title: "NutriBot",
     images: ["/images/projects/nutribot01.mov", "/images/projects/nutribot02.png", "/images/projects/nutribot03.png", "/images/projects/nutribot04.png"],
