@@ -40,7 +40,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
   };
 
   // Preparar apenas as imagens para o Lightbox (sem vídeos)
-  const imageUrls = project.images.filter(url => !isVideo(url));
+  const imageUrls = project.images.filter((url) => url.trim() && !isVideo(url));
   
   // Adicionar o slide de projeto se for uma imagem
   if (project.slideImage && !isVideo(project.slideImage)) {
@@ -142,7 +142,10 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
 
         <div className="lg:w-3/5">
           <div className="space-y-4">
-            {project.images.map((mediaUrl, index) => (
+            {project.images.map((mediaUrl, index) => {
+              if (!mediaUrl.trim()) return null;
+
+              return (
               <div 
                 key={index} 
                 className="rounded-lg overflow-hidden shadow-lg"
@@ -155,6 +158,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                     className="w-full h-auto"
                   />
                 ) : (
@@ -172,7 +176,8 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                   </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
 
           {project.slideImage && (
@@ -185,6 +190,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                   muted
                   loop
                   playsInline
+                  preload="metadata"
                   className="w-full h-auto"
                 />
               ) : (

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { projects, participations, arts } from "@/app/data";
@@ -21,40 +21,43 @@ export default function Projects() {
   const [searchResults, setSearchResults] = useState<Project[] | null>(null);
   const allProjects = [...projects, ...participations, ...arts];
 
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    dots: true,
-    arrows: false,
-    customPaging: function() {
-      return (
-        <div className="w-3 h-3 mt-4 mx-2 bg-gray-400 rounded-full hover:bg-gray-600 transition-colors cursor-pointer" />
-      );
-    },
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: { slidesToShow: 3, slidesToScroll: 1 },
+  const settings = useMemo(
+    () => ({
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      pauseOnHover: true,
+      dots: true,
+      arrows: false,
+      customPaging: function () {
+        return (
+          <div className="w-3 h-3 mt-4 mx-2 bg-gray-400 rounded-full hover:bg-gray-600 transition-colors cursor-pointer" />
+        );
       },
-      {
-        breakpoint: 900,
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
-      },
-      {
-        breakpoint: 600,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
-      },
-    ],
-  };
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: { slidesToShow: 3, slidesToScroll: 1 },
+        },
+        {
+          breakpoint: 900,
+          settings: { slidesToShow: 2, slidesToScroll: 1 },
+        },
+        {
+          breakpoint: 600,
+          settings: { slidesToShow: 1, slidesToScroll: 1 },
+        },
+      ],
+    }),
+    []
+  );
 
   // Helper function to determine if a file is a video
   const getMediaType = (url: string) => {
-    return url.endsWith('.mp4') || url.endsWith('.mov') ? "video" : "image";
+    if (!url) return "image";
+    return url.endsWith(".mp4") || url.endsWith(".mov") ? "video" : "image";
   };
 
   const navigateToProject = (id: any) => {
@@ -104,7 +107,7 @@ export default function Projects() {
         // Exibir visualização normal com sliders
         <>
           <div className="relative mt-4 mb-10">
-            <Slider {...settings}>
+            <Slider {...settings} infinite={projects.length > 4}>
               {projects.map((project) => {
                 const firstMedia = project.images[0];
                 const mediaType = getMediaType(firstMedia);
@@ -116,6 +119,7 @@ export default function Projects() {
                       title={project.title}
                       category={project.category}
                       mediaType={mediaType}
+                      inCarousel
                       onClick={() => navigateToProject(project.id)}
                     />
                   </div>
@@ -131,11 +135,29 @@ export default function Projects() {
           </h1>
 
           <div className="relative mb-10">
-            <Slider {...settings} speed={600}>
+            <Slider
+              {...settings}
+              infinite={false}
+              speed={600}
+              responsive={[
+                {
+                  breakpoint: 1200,
+                  settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true },
+                },
+                {
+                  breakpoint: 900,
+                  settings: { slidesToShow: 2, slidesToScroll: 1, infinite: true },
+                },
+                {
+                  breakpoint: 600,
+                  settings: { slidesToShow: 1, slidesToScroll: 1, infinite: true },
+                },
+              ]}
+            >
               {participations.map((project) => {
                 const firstMedia = project.images[0];
                 const mediaType = getMediaType(firstMedia);
-                
+
                 return (
                   <div key={project.id} className="px-2">
                     <Card
@@ -143,6 +165,7 @@ export default function Projects() {
                       title={project.title}
                       category={project.category}
                       mediaType={mediaType}
+                      inCarousel
                       onClick={() => navigateToProject(project.id)}
                     />
                   </div>
@@ -156,11 +179,11 @@ export default function Projects() {
           <h1 className="text-4xl text-center font-bold mb-4">minhas artes</h1>
 
           <div className="relative mb-10">
-            <Slider {...settings}>
+            <Slider {...settings} infinite={arts.length > 4}>
               {arts.map((project) => {
                 const firstMedia = project.images[0];
                 const mediaType = getMediaType(firstMedia);
-                
+
                 return (
                   <div key={project.id} className="px-2">
                     <Card
@@ -168,6 +191,7 @@ export default function Projects() {
                       title={project.title}
                       category={project.category}
                       mediaType={mediaType}
+                      inCarousel
                       onClick={() => navigateToProject(project.id)}
                     />
                   </div>

@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { useLoading } from "../../components/Loader";
+import { useSetLoading } from "../../components/Loader";
 
 interface CardProps {
   media: string;
@@ -10,6 +11,7 @@ interface CardProps {
   height?: string;
   onClick: () => void;
   mediaType?: "image" | "video";
+  inCarousel?: boolean;
 }
 
 const getCategoryColor = (category: string) => {
@@ -27,6 +29,98 @@ const getCategoryColor = (category: string) => {
   }
 };
 
+const CardVideo = ({ src, inCarousel = false }: { src: string; inCarousel?: boolean }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const video = videoRef.current;
+    if (!container || !video) return;
+
+    let frame = 0;
+    let attempts = 0;
+    let delayTimer = 0;
+    let observer: MutationObserver | IntersectionObserver | undefined;
+
+    const stop = () => {
+      window.clearTimeout(delayTimer);
+      video.pause();
+      if (video.getAttribute("src")) {
+        video.removeAttribute("src");
+        video.load();
+      }
+    };
+
+    const start = () => {
+      window.clearTimeout(delayTimer);
+      delayTimer = window.setTimeout(() => {
+        const slide = container.closest(".slick-slide");
+        const stillActive = inCarousel ? !!slide?.classList.contains("slick-active") : true;
+        if (!stillActive) return;
+        if (video.getAttribute("src") !== src) {
+          video.src = src;
+        }
+        video.muted = true;
+        video.play().catch(() => {});
+      }, inCarousel ? 200 : 0);
+    };
+
+    const apply = (active: boolean) => {
+      if (active) start();
+      else stop();
+    };
+
+    const watchCarousel = () => {
+      const slide = container.closest(".slick-slide");
+      const slider = container.closest(".slick-slider");
+      if (slide && slider?.classList.contains("slick-initialized")) {
+        apply(slide.classList.contains("slick-active"));
+        const mutationObserver = new MutationObserver(() => {
+          apply(slide.classList.contains("slick-active"));
+        });
+        mutationObserver.observe(slide, { attributes: true, attributeFilter: ["class"] });
+        observer = mutationObserver;
+        return;
+      }
+
+      if (attempts > 40) return;
+      attempts += 1;
+      frame = window.requestAnimationFrame(watchCarousel);
+    };
+
+    if (inCarousel) {
+      watchCarousel();
+    } else {
+      const intersectionObserver = new IntersectionObserver(
+        ([entry]) => apply(entry.isIntersecting),
+        { threshold: 0.35 }
+      );
+      intersectionObserver.observe(container);
+      observer = intersectionObserver;
+    }
+
+    return () => {
+      window.clearTimeout(delayTimer);
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
+  }, [inCarousel, src]);
+
+  return (
+    <div ref={containerRef} className="h-full w-full rounded-xl bg-black/5">
+      <video
+        ref={videoRef}
+        className="rounded-xl object-cover w-full h-full"
+        muted
+        loop
+        playsInline
+        preload="none"
+      />
+    </div>
+  );
+};
+
 const Card = ({
   media,
   title,
@@ -34,14 +128,13 @@ const Card = ({
   height = "356",
   onClick,
   mediaType = "image",
+  inCarousel = false,
 }: CardProps) => {
-  // Utilizando o hook de loading
-  const { setLoading } = useLoading();
+  const setLoading = useSetLoading();
+  const mediaSrc = media?.trim() ? media : "";
 
   const handleClick = () => {
-    // Ativar o loader antes de navegar
     setLoading(true);
-    // Chamar a função onClick original (que provavelmente faz a navegação)
     onClick();
   };
 
@@ -51,9 +144,11 @@ const Card = ({
       onClick={handleClick}
     >
       <div className="relative w-full" style={{ height: `clamp(200px, 30vw, ${height}px)` }}>
-        {mediaType === "image" ? (
+        {!mediaSrc ? (
+          <div className="rounded-xl w-full h-full bg-[var(--secondary-bg-color)]" />
+        ) : mediaType === "image" ? (
           <Image
-            src={media}
+            src={mediaSrc}
             alt={title}
             fill
             className="rounded-xl object-cover"
@@ -61,14 +156,7 @@ const Card = ({
             loading="lazy"
           />
         ) : (
-          <video
-            src={media}
-            className="rounded-xl object-cover w-full h-full"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+          <CardVideo src={mediaSrc} inCarousel={inCarousel} />
         )}
       </div>
       <div className="pt-2 pb-2">
@@ -78,7 +166,7 @@ const Card = ({
         >
           {category}
         </span>
-        
+
         <h3 className="text-2xl md:text-3xl font-semibold">{title}</h3>
       </div>
     </div>

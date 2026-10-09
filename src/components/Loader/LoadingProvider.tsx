@@ -1,44 +1,66 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { usePathname } from "next/navigation";
 import Loader from "./Loader";
 
-interface LoadingContextType {
-  isLoading: boolean;
-  setLoading: (loading: boolean) => void;
-}
+const LoadingStateContext = createContext(false);
+const LoadingDispatchContext = createContext<(loading: boolean) => void>(() => {});
 
-const LoadingContext = createContext<LoadingContextType>({
-  isLoading: false,
-  setLoading: () => {},
-});
+export const useLoading = () => {
+  const isLoading = useContext(LoadingStateContext);
+  const setLoading = useContext(LoadingDispatchContext);
+  return { isLoading, setLoading };
+};
 
-export const useLoading = () => useContext(LoadingContext);
+export const useSetLoading = () => useContext(LoadingDispatchContext);
 
 export const LoadingProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Reset loading state on route change
+  const clearHideTimer = () => {
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current);
+      hideTimer.current = null;
+    }
+  };
+
+  const setLoading = useCallback((loading: boolean) => {
+    clearHideTimer();
+    setIsLoading(loading);
+
+    if (loading) {
+      hideTimer.current = setTimeout(() => {
+        setIsLoading(false);
+      }, 8000);
+    }
+  }, []);
+
   useEffect(() => {
-    // Add a small delay to make the loader visible for at least a moment
-    // This improves UX by providing consistent feedback even for fast loads
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-    
-    // Cleanup on unmount
-    return () => {
-      // Optional cleanup if needed
-    };
+    clearHideTimer();
+    setIsLoading(false);
   }, [pathname]);
 
+  useEffect(() => {
+    return () => clearHideTimer();
+  }, []);
+
   return (
-    <LoadingContext.Provider value={{ isLoading, setLoading }}>
-      {isLoading && <Loader />}
-      {children}
-    </LoadingContext.Provider>
+    <LoadingDispatchContext.Provider value={setLoading}>
+      <LoadingStateContext.Provider value={isLoading}>
+        {isLoading && <Loader />}
+        {children}
+      </LoadingStateContext.Provider>
+    </LoadingDispatchContext.Provider>
   );
 };
 

@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { projects, featuredProjects } from "./data";
 import Card from "../components/Card/Card";
-import { useLoading } from "../components/Loader/LoadingProvider";
+import { useSetLoading } from "../components/Loader/LoadingProvider";
 
 function HomeContent() {
   const router = useRouter();
-  const { setLoading } = useLoading();
+  const setLoading = useSetLoading();
 
   const featuredSlides = projects.filter(
     (project) => project.showSlide && project.slideImage
@@ -38,6 +38,7 @@ function HomeContent() {
 
   // Helper function to determine media type
   const getMediaType = (url: string) => {
+    if (!url) return "image";
     return url.endsWith(".mp4") || url.endsWith(".mov") ? "video" : "image";
   };
 
